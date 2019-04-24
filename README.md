@@ -1,2 +1,2 @@
-Gait synthesized for underwater snake robot
+# Gait synthesized for underwater snake robot
 ![](animation.gif)
