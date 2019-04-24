@@ -1,2 +1,2 @@
-# ICRA-workshop
-Media files for ICRA workshop
+Gait synthesized for underwater snake robot
+![](animation.gif)
