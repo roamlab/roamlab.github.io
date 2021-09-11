@@ -16,7 +16,7 @@
 
 	    <meta property="og:type"          content="website" />
 	    <meta property="og:title"         content="Discovering Synergies for Robot Manipulation with Multi-Task Reinforcement Learning" />
-	    <meta property="og:description"   content="" />
+	    <meta property="og:description"   content="Learning to control full dimensional robotic manipulators for dexterous tasks is a challenging problem. Humans are able to achieve complex motions using motor synergies, which utilize the co-activation of muscles. Inspired by human-like manipulations, researchers have studied generating postural synergies for robotic hand to accomplish grasping tasks. However, many of these works require pre-collected data for a single robotic task to derive a subspace using dimensionality reduction. Deriving synergies using multiple tasks can lead to a subspace that enables robots to learn manipulating new objects efficiently. In this paper, we present a framework, that simultaneously discover a synergy space and policy that operates on a low-dimensional action space to accomplish diverse manipulation tasks. We demonstrate that our method is able to learns multiple tasks using a few synergies and outperform methods that uses dimension reduction on collected solutions." />
 	    
 
 	</head>
@@ -29,13 +29,13 @@
 
 						<!-- <h1 style="text-align: center; margin-bottom: 0;"><font color="4e79a7">Grasping in the Wild:</font> </h1>
 						<h2 style="text-align: center;">Learning 6DoF Closed-Loop Grasping from Low-Cost Demonstrations</h2> -->
-						<h1 style="text-align: center; margin-bottom: 0; color: #4e79a7; font-size: 180%; margin-bottom: 1em;">Hardware as Policy: Mechanical and ComputationalCo-Optimization using Deep Reinforcement Learning</h1>
+						<h1 style="text-align: center; margin-bottom: 0; color: #4e79a7; font-size: 180%; margin-bottom: 1em;">Discovering Synergies for Robot Manipulation with Multi-Task Reinforcement Learning</h1>
 						
 						<span class="image right" style="max-width: 50%; margin-top: 0.5em; margin-bottom: 0;">
-							<img src="images/hwasp_teaser.jpg" alt="" />
+							<img src="images/hands.png" alt="" />
 						</span>
 						<p>
-							Deep Reinforcement Learning (RL) has shown great success in learning complex control policies for a variety of applications in robotics. However, in most such cases, the hardware of the robot has been considered immutable, modeled as part of the environment. In this study, we explore the problem of learning hardware and control parameters together in a unified RL framework. To achieve this, we propose to model the robot body as a ''hardware policy'', analogous to and optimized jointly with its computational counterpart. We show that, by modeling such hardware policies as auto-differentiable computational graphs, the ensuing optimization problem can be solved efficiently by gradient-based algorithms from the Policy Optimization family. We present two such design examples: a toy mass-spring problem, and a real-world problem of designing an underactuated hand. We compare our method against traditional co-optimization approaches, and also demonstrate its effectiveness by building a physical prototype based on the learned hardware parameters.
+							Learning to control full dimensional robotic manipulators for dexterous tasks is a challenging problem. Humans are able to achieve complex motions using motor synergies, which utilize the co-activation of muscles. Inspired by human-like manipulations, researchers have studied generating postural synergies for robotic hand to accomplish grasping tasks. However, many of these works require pre-collected data for a single robotic task to derive a subspace using dimensionality reduction. Deriving synergies using multiple tasks can lead to a subspace that enables robots to learn manipulating new objects efficiently. In this paper, we present a framework, that simultaneously discover a synergy space and policy that operates on a low-dimensional action space to accomplish diverse manipulation tasks. We demonstrate that our method is able to learns multiple tasks using a few synergies and outperform methods that uses dimension reduction on collected solutions.
 						</p>
 						
 						
@@ -59,9 +59,9 @@
 						<h3>Paper</h3>
 
 						<!-- <hr/> -->
-						<p style="margin-bottom: 1em;">Latest version: <a href="paper.pdf">here</a></p>
+						<p style="margin-bottom: 1em;">Latest version: <a href="">here</a></p>
 
-						<div class="12u$"><a href="paper.pdf"><span class="image fit" style="border: 1px solid; border-color: #888888;"><img src="images/paper-thumbnail.jpg" alt="" /></span></a></div>
+						<div class="12u$"><a href=""><span class="image fit" style="border: 1px solid; border-color: #888888;"><img src="images/paper-thumbnail.jpg" alt="" /></span></a></div>
 
 
 						<hr>
@@ -69,17 +69,13 @@
 						<section>
 							<div class="box alt" style="margin-bottom: 1em;">
 								<div class="row 50% uniform" style="width: 90%;">
-									<div class="2u" style="font-size: 0.7em; line-height: 1.5em; text-align: center;"><a href="https://roam.me.columbia.edu/tianjian-chen/"><span class="image fit" style="margin-bottom: 0.5em;"><img src="images/tianjian_thumbnail.jpg" alt="" style="border-radius: 50%;" /></span>Tianjian Chen <sup>1*</sup></a></div>
-
-									<div class="2u" style="font-size: 0.7em; line-height: 1.5em; text-align: center;"><a href="https://zhanpenghe.github.io/"><span class="image fit" style="margin-bottom: 0.5em;"><img src="images/zhanpeng_thumbnail.jpg" alt="" style="border-radius: 50%;" /></span>Zhanpeng He <sup>1*</sup></a></div>
-									
+									<div class="2u" style="font-size: 0.7em; line-height: 1.5em; text-align: center;"><a href="https://zhanpenghe.github.io/"><span class="image fit" style="margin-bottom: 0.5em;"><img src="images/zhanpeng_thumbnail.jpg" alt="" style="border-radius: 50%;" /></span>Zhanpeng He <sup>1</sup></a></div>
 									<div class="2u" style="font-size: 0.7em; line-height: 1.5em; text-align: center;"><a href="https://roam.me.columbia.edu/matei-ciocarlie"><span class="image fit" style="margin-bottom: 0.5em;"><img src="images/matei.jpg" alt="" style="border-radius: 50%;" /></span>Matei Ciocarlie <sup>1</sup></a></div>
 																		
 								</div>
 							</div>
 						</section>
 						<sup>1</sup> <a href="https://roam.me.columbia.edu/">ROAM Lab</a>, Columbia University&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<sup>*</sup> Indicates equal contribution
 						
 						<hr>
 						<div class="row" style="margin-top: 0em; margin-bottom: -1em">
@@ -95,17 +91,18 @@
 							</div> -->
 							<div class="12u$ 12u$(xsmall)">
 							  <h3>BibTeX</h3>
-							  <pre><code>@inproceedings{chen2020hwasp,
+							  <pre><code>TBD</code></pre>
+							  <!-- <pre><code>@inproceedings{chen2020hwasp,
 	title={Hardware as Policy: Mechanical and ComputationalCo-Optimization using Deep Reinforcement Learning},
 	author={Chen, Tianjian and He, Zhanpeng and Ciocarlie, Matei},
 	booktitle={Conference on Robotic Learning (CoRL)},
 	year={2020}
-}</code></pre>
+}</code></pre> -->
 							</div>
 						  </div>
 
 
-						<hr style="margin-top: 1em">
+						<!-- <hr style="margin-top: 1em"> -->
 						<!-- <div class="row">
 							<div class="12u$ 12u$(xsmall)" style="text-align: center;">
 		                    <video width="640"  playsinline="" muted="" autoplay="" loop="" >
@@ -114,17 +111,16 @@
 	                		</div >
 						</div> -->
 
-						<div class="row">
+						<!-- <div class="row">
 							<div class="12u$ 12u$(xsmall)" style="text-align: center;">
 								<h3>Technical Summary Video (with audio)</h3>
-								<!-- <iframe id="match-video" width="640" height="360" style="margin-bottom: 2em; margin-left: auto; margin-right: auto; display:block;" src="images/videos/dsr-video.mp4" frameborder="0" allowfullscreen></iframe> -->
 								<video width="640" height="360" controls>
 									<source src="images/videos/hwasp-video.mp4" type="video/mp4">
 								</video>
 							</div>
-						</div>
+						</div> -->
 
-						<h3>Method Overview</h3>
+						<!-- <h3>Method Overview</h3>
 						<div class="12u$"><span class="image fit" ><img src="images/teaser.png" alt="" /></span></div>
 						<p>
 							In this work, we purpose to consider hardware as policy, optimized jointly with the traditional computational policy using Reinforcement Learning (RL).
@@ -180,7 +176,7 @@
 						<hr>
 				        <h3>Acknowledgements</h3>
 				        <p> The authors would like to thank Roberto Calandra for insightful discussions and suggestions. This
-							work was supported in part by ONR Grant N00014-16-1-2026 and by a Google Faculty Award. </p>
+							work was supported in part by ONR Grant N00014-16-1-2026 and by a Google Faculty Award. </p> -->
 
 						<hr/ style="margin-top: 1em">
 				        <h3>Contact</h3>
