@@ -1,0 +1,211 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Discovering Synergies for Robot Manipulation with Multi-Task Reinforcement Learning</title>
+		<meta charset="utf-8" />
+		 <meta name="viewport" content="width=1000">
+		<link rel="stylesheet" href="assets/css/main.css" />
+		 <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+          ga('create', 'UA-89797207-1', 'auto');
+          ga('send', 'pageview');
+        </script>
+
+	    <meta property="og:type"          content="website" />
+	    <meta property="og:title"         content="Discovering Synergies for Robot Manipulation with Multi-Task Reinforcement Learning" />
+	    <meta property="og:description"   content="" />
+	    
+
+	</head>
+	<body id="top">
+
+
+		<!-- Main -->
+			<div id="main" style="padding-bottom:1em; padding-top: 5em; width: 60em; max-width: 70em; margin-left: auto; margin-right: auto;">
+					<section id="four">
+
+						<!-- <h1 style="text-align: center; margin-bottom: 0;"><font color="4e79a7">Grasping in the Wild:</font> </h1>
+						<h2 style="text-align: center;">Learning 6DoF Closed-Loop Grasping from Low-Cost Demonstrations</h2> -->
+						<h1 style="text-align: center; margin-bottom: 0; color: #4e79a7; font-size: 180%; margin-bottom: 1em;">Hardware as Policy: Mechanical and ComputationalCo-Optimization using Deep Reinforcement Learning</h1>
+						
+						<span class="image right" style="max-width: 50%; margin-top: 0.5em; margin-bottom: 0;">
+							<img src="images/hwasp_teaser.jpg" alt="" />
+						</span>
+						<p>
+							Deep Reinforcement Learning (RL) has shown great success in learning complex control policies for a variety of applications in robotics. However, in most such cases, the hardware of the robot has been considered immutable, modeled as part of the environment. In this study, we explore the problem of learning hardware and control parameters together in a unified RL framework. To achieve this, we propose to model the robot body as a ''hardware policy'', analogous to and optimized jointly with its computational counterpart. We show that, by modeling such hardware policies as auto-differentiable computational graphs, the ensuing optimization problem can be solved efficiently by gradient-based algorithms from the Policy Optimization family. We present two such design examples: a toy mass-spring problem, and a real-world problem of designing an underactuated hand. We compare our method against traditional co-optimization approaches, and also demonstrate its effectiveness by building a physical prototype based on the learned hardware parameters.
+						</p>
+						
+						
+
+						<!-- <hr/ style="margin-top: 1em">
+						<h3>Highlights</h3>
+
+						<section>
+							<div class="box alt" style="margin-bottom: 0em;">
+
+								<div class="row 50% uniform" style="width: 100%;">
+									<div class="3u" style="margin-top: -5em; font-size: 0.7em; line-height: 1.5em; text-align: center;"><a href="https://ai.googleblog.com/2019/03/unifying-physics-and-deep-learning-with.html"><span class="image fit" style="margin-bottom: 0.5em;"><img src="images/logo-GoogleAI.png" alt="" style="height: 19em; width: auto;" /></span></a></div>
+									<div class="3u" style="margin-left: 3em; margin-top: 1.6em; font-size: 0.7em; line-height: 1.5em; text-align: center;"><a href="https://www.nytimes.com/2019/03/26/technology/google-robotics-lab.html"><span class="image fit" style="margin-bottom: 0.5em;"><img src="images/logo-nyt.jpg" alt="" style="height: 6em; width: auto;" /></span></a></div>
+									<div class="3u" style="margin-left: 6em; margin-top: 2.6em; font-size: 0.7em; line-height: 1.5em; text-align: center;"><a href="https://spectrum.ieee.org/automaton/robotics/artificial-intelligence/google-teaches-robot-to-toss-bananas-better-than-you-do"><span class="image fit" style="margin-bottom: 0.5em;"><img src="images/logo-ieeespectrum.png" alt="" style="height: 3em; width: auto;" /></span></a></div>
+									
+								</div>
+							</div>
+						</section> -->
+
+						<hr style="margin-top: 0em;">
+						<h3>Paper</h3>
+
+						<!-- <hr/> -->
+						<p style="margin-bottom: 1em;">Latest version: <a href="paper.pdf">here</a></p>
+
+						<div class="12u$"><a href="paper.pdf"><span class="image fit" style="border: 1px solid; border-color: #888888;"><img src="images/paper-thumbnail.jpg" alt="" /></span></a></div>
+
+
+						<hr>
+						<h3>Team</h3>
+						<section>
+							<div class="box alt" style="margin-bottom: 1em;">
+								<div class="row 50% uniform" style="width: 90%;">
+									<div class="2u" style="font-size: 0.7em; line-height: 1.5em; text-align: center;"><a href="https://roam.me.columbia.edu/tianjian-chen/"><span class="image fit" style="margin-bottom: 0.5em;"><img src="images/tianjian_thumbnail.jpg" alt="" style="border-radius: 50%;" /></span>Tianjian Chen <sup>1*</sup></a></div>
+
+									<div class="2u" style="font-size: 0.7em; line-height: 1.5em; text-align: center;"><a href="https://zhanpenghe.github.io/"><span class="image fit" style="margin-bottom: 0.5em;"><img src="images/zhanpeng_thumbnail.jpg" alt="" style="border-radius: 50%;" /></span>Zhanpeng He <sup>1*</sup></a></div>
+									
+									<div class="2u" style="font-size: 0.7em; line-height: 1.5em; text-align: center;"><a href="https://roam.me.columbia.edu/matei-ciocarlie"><span class="image fit" style="margin-bottom: 0.5em;"><img src="images/matei.jpg" alt="" style="border-radius: 50%;" /></span>Matei Ciocarlie <sup>1</sup></a></div>
+																		
+								</div>
+							</div>
+						</section>
+						<sup>1</sup> <a href="https://roam.me.columbia.edu/">ROAM Lab</a>, Columbia University&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<sup>*</sup> Indicates equal contribution
+						
+						<hr>
+						<div class="row" style="margin-top: 0em; margin-bottom: -1em">
+							<!-- <div class="6u 12u$(xsmall)">
+							  <h3>Code</h3>
+							  Code is available on <a href="">GitHub(TBD)</a>, including:
+							  <ul style="margin-top: 1em;">
+								  <li>Simulation environments</li>
+								  <li>Real world data</li>
+								  <li>Training code</font></li>
+								  <li>Pretrained model</li>
+							  </ul>
+							</div> -->
+							<div class="12u$ 12u$(xsmall)">
+							  <h3>BibTeX</h3>
+							  <pre><code>@inproceedings{chen2020hwasp,
+	title={Hardware as Policy: Mechanical and ComputationalCo-Optimization using Deep Reinforcement Learning},
+	author={Chen, Tianjian and He, Zhanpeng and Ciocarlie, Matei},
+	booktitle={Conference on Robotic Learning (CoRL)},
+	year={2020}
+}</code></pre>
+							</div>
+						  </div>
+
+
+						<hr style="margin-top: 1em">
+						<!-- <div class="row">
+							<div class="12u$ 12u$(xsmall)" style="text-align: center;">
+		                    <video width="640"  playsinline="" muted="" autoplay="" loop="" >
+		                        <source src="images/videos/data_video_combined2.mp4" type="video/mp4">
+		                    </video>
+	                		</div >
+						</div> -->
+
+						<div class="row">
+							<div class="12u$ 12u$(xsmall)" style="text-align: center;">
+								<h3>Technical Summary Video (with audio)</h3>
+								<!-- <iframe id="match-video" width="640" height="360" style="margin-bottom: 2em; margin-left: auto; margin-right: auto; display:block;" src="images/videos/dsr-video.mp4" frameborder="0" allowfullscreen></iframe> -->
+								<video width="640" height="360" controls>
+									<source src="images/videos/hwasp-video.mp4" type="video/mp4">
+								</video>
+							</div>
+						</div>
+
+						<h3>Method Overview</h3>
+						<div class="12u$"><span class="image fit" ><img src="images/teaser.png" alt="" /></span></div>
+						<p>
+							In this work, we purpose to consider hardware as policy, optimized jointly with the traditional computational policy using Reinforcement Learning (RL).
+							By moving some part of the robot hardware from the non-differentiable environment and into the auto-differentiable agent/policy, the hardware parameters become parameters in the policy graph, analogous to and optimized in the same fashion as the neural network weights and biases. Therefore, the optimization of hardware parameters can be directly incorporated into the existing RL framework, and can use existing learning algorithms with minor changes only in the computational graphs. 
+						</p>
+
+						<h3>Co-Design of an Underactuated Hand</h3>
+						<p>
+							HWasP can be applied to a real-world design problem: optimizing both the mechanism and the control policy for an underactuated robot hand. 
+							The hand we are optimizing is governed by an underactuated transmission mechanism: one motor actuates all joints by tendons in the flexion direction. Finger extension is passive, provided by preloaded torsional springs. The mechanical parameters that govern the behavior of this mechanism consist of tendon pulley radii in each joint, as well as stiffness values and preload angles for restoring springs. 
+							We tested our method with two grasping tasks: 1. top-down grasping with only z-axis motion for the palm movement (Z-Grasp); 2. top-down grasping with 3-dimensional palm motion (3D-Grasp).
+						</p>
+						<div class="12u$">
+							<span class="image fit" style="max-width: 80%; border: 0px solid; border-color: #888888; margin-left: auto; margin-right: auto">
+								<img src="images/real_hand.png" alt="" />
+							</span>
+						</div>
+						<p>
+
+						</p>
+
+						<hr>
+
+						<h4>Learning Performance</h4>
+						<p style="margin-bottom: 0"></p>
+						
+						<div class="12u$">
+							<span class="image fit" style="max-width: 80%; border: 0px solid; border-color: #888888; margin-left: auto; margin-right: auto">
+								<img src="images/learning_performance.png" alt="" />
+							</span>
+						</div>
+
+						<p style="margin-bottom: 1em">
+							Left: Z-Grasp with a large hardware parameter search range. Here, HWasP learns the task stably while HWasP-Minimal lags in performance. All evolutionary algorithms (CMA-ES and ARS) fail to achieve similar performance as HWasP.
+						</p>
+
+						<p>
+							Middle: Z-Grasp with small hardware search range. 
+							We also tried a version of the same problem with the search range for the hardware parameters reduced by a factor of 8. Here, all methods except CMA-ES obtain similarly effective policies, but HWasP is still most efficient. 
+							ARS achieve better performance than CMA-ES while optimizing both the computational policy and hardware parameters.
+						</p>
+						
+						<p>
+							Right: 3D-Grasp with a small search range. With this task, HWasP was able to learn an effective policy, while neither CMA-ES-based method displayed any learning behavior over a similar timescale.
+						</p>
+						<hr>
+
+						<h4>Physical Hardware Prototyping and Policy Deployment in Realworld</h4>
+
+						<p>To validate our results in the real world, we physically built the hand with the parameters resulted from the co-optimization. The hand is 3D printed, and actuated by a single position-controlled servo motor. We note that, by virtue of a large number of simulation samples of different grasp types with different object shapes, sizes and other physics properties, the hand is versatile and can perform both stable fingertip grasps as well as enveloping grasps for different objects in reality.</p>
+						</hr>
+
+						<hr>
+				        <h3>Acknowledgements</h3>
+				        <p> The authors would like to thank Roberto Calandra for insightful discussions and suggestions. This
+							work was supported in part by ONR Grant N00014-16-1-2026 and by a Google Faculty Award. </p>
+
+						<hr/ style="margin-top: 1em">
+				        <h3>Contact</h3>
+				        <p>If you have any questions, please feel free to contact <a href="http://zhanpenghe.github.io/">Zhanpeng He</a></p>
+						<hr/>
+						
+					</section>
+					
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<ul class="copyright">
+						<li>Meet <a href="https://en.wikipedia.org/wiki/Danbo_(character)">Danbo</a> the cardboard robot.</li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+	</body>
+</html>
