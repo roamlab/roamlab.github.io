@@ -12,7 +12,14 @@
           })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
           ga('create', 'UA-89797207-1', 'auto');
           ga('send', 'pageview');
-        </script>
+		</script>
+		
+		<script type="text/x-mathjax-config">
+			MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+		  </script>
+		  <script type="text/javascript"
+			src="http://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+		  </script>
 
 	    <meta property="og:type"          content="website" />
 	    <meta property="og:title"         content="Discovering Synergies for Robot Manipulation with Multi-Task Reinforcement Learning" />
@@ -32,7 +39,7 @@
 						<h1 style="text-align: center; margin-bottom: 0; color: #4e79a7; font-size: 180%; margin-bottom: 1em;">Discovering Synergies for Robot Manipulation with Multi-Task Reinforcement Learning</h1>
 						
 						<span class="image right" style="max-width: 50%; margin-top: 0.5em; margin-bottom: 0;">
-							<img src="images/hands.png" alt="" />
+							<img src="images/synergy-and-tasks.png" alt="" />
 						</span>
 						<p>
 							Learning to control full dimensional robotic manipulators for dexterous tasks is a challenging problem. Humans are able to achieve complex motions using motor synergies, which utilize the co-activation of muscles. Inspired by human-like manipulations, researchers have studied generating postural synergies for robotic hand to accomplish grasping tasks. However, many of these works require pre-collected data for a single robotic task to derive a subspace using dimensionality reduction. Deriving synergies using multiple tasks can lead to a subspace that enables robots to learn manipulating new objects efficiently. In this paper, we present a framework, that simultaneously discover a synergy space and policy that operates on a low-dimensional action space to accomplish diverse manipulation tasks. We demonstrate that our method is able to learns multiple tasks using a few synergies and outperform methods that uses dimension reduction on collected solutions.
@@ -65,6 +72,23 @@
 
 
 						<hr>
+
+						<h3>Task Sets Details</h3>
+						<div class="12u$"><span class="image fit" ><img src="images/discotask.jpg" alt="" /></span></div>
+						<p>
+							Here, we describe the details of each environment:
+							<ul>
+								<li><strong>Task set #1:</strong> the valve turning tasks only variate on the shape of the valve. The observations of these tasks are $(qpos_{hand}, qpos_{valve}, qvel_{valve})$, where $qpos_{hand}$ and $qpos_{valve}$ are the joint position of the hand and the valve, $qvel_{valve}$ is the joint velocity of the valve. The reward function of all tasks in task set \#1 are $r_{valve} = a * qvel_{valve} + b$, where $a$ and $b$ are constant and the same across all tasks in task set \#1.</li>
+								<li><strong>Dice reorienting:</strong> in this task, the shadow hand is asked to reorient the dice to some target poses. The observation of this tasks contains: the joint position of the hand $qpos_{hand}$, the pose of the dice $qpos_{dice}$, the velocity of the dice $qvel_{dice}$ and the target pose $qpos_{target}$. The reward function we use here is a function of the distance between the current pose and the target pose: $r_{dice} = f(qpos_{dice}, qpos_{target})$, where $f$ represent a distance function.</li> 
+								<li><strong>Weight pulling:</strong> in this task, we ask the shadow hand to manipulate a soft rope to pull a cube that is attached to the end of the rope. The observations of this task contain the joint position of the hand $qpos_{hand}$ and the pose of the cube $qpos_{cube}$. The reward function of this task is a linear function of the height of the cube: $r_{weightpull} = m * h_{cube} + n$, where $m$, $n$ are constants and $h_{cube}$ is the height of the cube.</li>
+								<li><strong>Screwing:</strong> in this task, we ask the shadow hand to rotate a screw driver to make it screw into a wood block. The screw driver has two joints: a hinge joint and a slide joint on the x-axis. The position of the slide joint is linearly dependent on the position of the hinge joint. The observations of this tasks are the the joint position of the hand $qpos_{hand}$, the joint position and velocity of the screw driver $qpos_{screw}$, $qvel_{screw}$.</li> 
+							</ul>
+						</p>
+
+						<h3>Task learning performance and policy visualization</h3>
+						<p>
+							Video coming soon!
+						</p>
 						<h3>Team</h3>
 						<section>
 							<div class="box alt" style="margin-bottom: 1em;">
@@ -79,27 +103,11 @@
 						
 						<hr>
 						<div class="row" style="margin-top: 0em; margin-bottom: -1em">
-							<!-- <div class="6u 12u$(xsmall)">
-							  <h3>Code</h3>
-							  Code is available on <a href="">GitHub(TBD)</a>, including:
-							  <ul style="margin-top: 1em;">
-								  <li>Simulation environments</li>
-								  <li>Real world data</li>
-								  <li>Training code</font></li>
-								  <li>Pretrained model</li>
-							  </ul>
-							</div> -->
 							<div class="12u$ 12u$(xsmall)">
 							  <h3>BibTeX</h3>
 							  <pre><code>TBD</code></pre>
-							  <!-- <pre><code>@inproceedings{chen2020hwasp,
-	title={Hardware as Policy: Mechanical and ComputationalCo-Optimization using Deep Reinforcement Learning},
-	author={Chen, Tianjian and He, Zhanpeng and Ciocarlie, Matei},
-	booktitle={Conference on Robotic Learning (CoRL)},
-	year={2020}
-}</code></pre> -->
 							</div>
-						  </div>
+						</div>
 
 
 						<!-- <hr style="margin-top: 1em"> -->
@@ -120,14 +128,9 @@
 							</div>
 						</div> -->
 
-						<!-- <h3>Method Overview</h3>
-						<div class="12u$"><span class="image fit" ><img src="images/teaser.png" alt="" /></span></div>
-						<p>
-							In this work, we purpose to consider hardware as policy, optimized jointly with the traditional computational policy using Reinforcement Learning (RL).
-							By moving some part of the robot hardware from the non-differentiable environment and into the auto-differentiable agent/policy, the hardware parameters become parameters in the policy graph, analogous to and optimized in the same fashion as the neural network weights and biases. Therefore, the optimization of hardware parameters can be directly incorporated into the existing RL framework, and can use existing learning algorithms with minor changes only in the computational graphs. 
-						</p>
+						
 
-						<h3>Co-Design of an Underactuated Hand</h3>
+						<!-- <h3>Co-Design of an Underactuated Hand</h3>
 						<p>
 							HWasP can be applied to a real-world design problem: optimizing both the mechanism and the control policy for an underactuated robot hand. 
 							The hand we are optimizing is governed by an underactuated transmission mechanism: one motor actuates all joints by tendons in the flexion direction. Finger extension is passive, provided by preloaded torsional springs. The mechanical parameters that govern the behavior of this mechanism consist of tendon pulley radii in each joint, as well as stiffness values and preload angles for restoring springs. 
