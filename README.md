@@ -5,8 +5,10 @@
 <body bgcolor="white" text="black">
 
 <!-- <IMG SRC="animation.gif"> -->
-<a href="https://roamlab.github.io/hwasp/">HWasP</a>
-<a href="https://roamlab.github.io/discosyn/">DiscoSyn</a>
+<ul>
+    <li><a href="https://roamlab.github.io/hwasp/">HWasP</a></li>
+    <li><a href="https://roamlab.github.io/discosyn/">DiscoSyn</a></li>
+</ul>
 
 </body>
 
