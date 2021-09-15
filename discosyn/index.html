@@ -16,10 +16,8 @@
 		
 		<script type="text/x-mathjax-config">
 			MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
-		  </script>
-		  <script type="text/javascript"
-			src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-		  </script>
+		</script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 	    <meta property="og:type"          content="website" />
 	    <meta property="og:title"         content="Discovering Synergies for Robot Manipulation with Multi-Task Reinforcement Learning" />
@@ -36,13 +34,13 @@
 
 						<!-- <h1 style="text-align: center; margin-bottom: 0;"><font color="4e79a7">Grasping in the Wild:</font> </h1>
 						<h2 style="text-align: center;">Learning 6DoF Closed-Loop Grasping from Low-Cost Demonstrations</h2> -->
-						<h1 style="text-align: center; margin-bottom: 0; color: #4e79a7; font-size: 180%; margin-bottom: 1em;">Discovering Synergies for Robot Manipulation with Multi-Task Reinforcement Learning</h1>
-						
+						<h1 style="text-align: center; margin-bottom: 0; color: #4e79a7; font-size: 180%; margin-bottom: 1em;">Discovering Synergies for Robot Manipulation with Multi-Task Reinforcement Learning*</h1>
+						<p style="text-align: center; margin-bottom: 0; color: #4e79a7; font-size: 100%; margin-bottom: 1em;">(*This webpage is under heavy construction)</p>
 						<span class="image right" style="max-width: 50%; margin-top: 0.5em; margin-bottom: 0;">
 							<img src="images/synergy-and-tasks.png" alt="" />
 						</span>
 						<p>
-							Learning to control full dimensional robotic manipulators for dexterous tasks is a challenging problem. Humans are able to achieve complex motions using motor synergies, which utilize the co-activation of muscles. Inspired by human-like manipulations, researchers have studied generating postural synergies for robotic hand to accomplish grasping tasks. However, many of these works require pre-collected data for a single robotic task to derive a subspace using dimensionality reduction. Deriving synergies using multiple tasks can lead to a subspace that enables robots to learn manipulating new objects efficiently. In this paper, we present a framework, that simultaneously discover a synergy space and policy that operates on a low-dimensional action space to accomplish diverse manipulation tasks. We demonstrate that our method is able to learns multiple tasks using a few synergies and outperform methods that uses dimension reduction on collected solutions.
+							Controlling robotic manipulators with high-dimensional action spaces for dexterous tasks is a challenging problem. Inspired by human manipulation, researchers have studied generating and using postural synergies for robot hands to accomplish manipulation tasks, leveraging the lower dimensional nature of synergistic action spaces. However, many of these works require pre-collected data from an existing controller in order to derive such a subspace by means of dimensionality reduction. In this paper, we present a framework that simultaneously discovers a synergy space and a multi-task policy that operates on this low-dimensional action space to accomplish diverse manipulation tasks. We demonstrate that our end-to-end method is able to perform multiple tasks using few synergies, and outperforms sequential methods that apply dimensionality reduction to independently collected data. We also show that deriving synergies using multiple tasks can lead to a subspace that enables robots to efficiently learn new manipulation tasks and interactions with new objects.
 						</p>
 						
 						
@@ -66,10 +64,36 @@
 						<h3>Paper</h3>
 
 						<!-- <hr/> -->
-						<p style="margin-bottom: 1em;">Latest version: <a href="">here</a></p>
+						<p style="margin-bottom: 1em;">Latest version: <a href="paper.pdf">here</a></p>
 
 						<div class="12u$"><a href=""><span class="image fit" style="border: 1px solid; border-color: #888888;"><img src="images/paper-thumbnail.jpg" alt="" /></span></a></div>
 
+						<hr>
+
+						<h3>Proof for Eq. 1</h3>
+						<p>
+							Eq. 1. introduce a lower bound for $\mathbb{H}(\pi_{tasks}(a_t | s_t, n))$, which encourage our agent to learn a control subspace that is compact but still contains diverse hand postures that are useful various manipulation tasks.
+							Due to the page limit for ICRA, we present the an informal proof for Eq. 1 here. We first present a lower bound for $\mathbb{H}(p(x))$, which is useful to get a lowerbound in Eq. 1:
+						</p>
+						<p>
+							$$
+								\begin{eqnarray} 
+								   \mathbb{H}(p(x)) &=& \int p(x) \log(\dfrac{1}{p(x)}) dx \nonumber \\
+									                 &=& \int p(x) \log(\int q(z|x)\dfrac{1}{p(x)}dz) dx \nonumber \\
+													 &=& \int p(x) \log(\int q(z|x)\dfrac{p(z|x)}{p(x, z)}dz) dx \nonumber \\
+													 &\geq& \int p(x) \int q(z|x)\log(\dfrac{p(z|x)}{p(x, z)}dz) dx \nonumber \\
+													 &=& \int\int p(x, z) log(\dfrac{q(z|x)}{p(x, z)}dz) dx. \tag{4}
+													 
+							  	\end{eqnarray}
+							$$
+							Plugging Eq. 4 into $\mathbb{H}(\pi_{tasks}(a_t | s_t, n))$:
+							$$
+							\begin{eqnarray}
+								\mathbb{H}[\pi_\theta(a_t|s_t, n)] &=& E_{\pi}[-\log \pi_\theta(a_t|s_t, n)] \nonumber \\
+								&\geq& E_{\pi_\theta(a, z | s, n)} \Big[ \log(\dfrac{q(z| a, s, n)}{\pi(a, z| s, n)}) \Big] \nonumber
+							\end{eqnarray}
+							$$
+						</p>
 						<hr>
 
 						<h3>Task Sets Details</h3>
