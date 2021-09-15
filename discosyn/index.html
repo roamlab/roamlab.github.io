@@ -72,7 +72,7 @@
 
 						<h3>Proof for Eq. 1</h3>
 						<p>
-							Eq. 1. introduce a lower bound for $\mathbb{H}(\pi_{tasks}(a_t | s_t, n))$, which encourage our agent to learn a control subspace that is compact but still contains diverse hand postures that are useful various manipulation tasks.
+							Eq. 1. introduces a lower bound for $\mathbb{H}(\pi_{task}(a_t | s_t, n))$, which encourages our agent to learn a control subspace that is compact but still contains diverse hand postures that are useful various manipulation tasks.
 							Due to the page limit for ICRA, we present the an informal proof for Eq. 1 here. We first present a lower bound for $\mathbb{H}(p(x))$, which is useful to get a lowerbound in Eq. 1:
 						</p>
 						<p>
@@ -86,7 +86,7 @@
 													 
 							  	\end{eqnarray}
 							$$
-							Plugging Eq. 4 into $\mathbb{H}(\pi_{tasks}(a_t | s_t, n))$:
+							Plugging Eq. 4 into $\mathbb{H}(\pi_{task}(a_t | s_t, n))$:
 							$$
 							\begin{eqnarray}
 								\mathbb{H}[\pi_\theta(a_t|s_t, n)] &=& E_{\pi}[-\log \pi_\theta(a_t|s_t, n)] \nonumber \\
