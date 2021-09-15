@@ -12,6 +12,9 @@
     </ul>
 </p>
 
+<h3>Committing to the roamlab.github.io repo</h3>
+<p>Please format your commit message in this format: [PROJECT_NAME]: [COMMIT_MESSAGE]. Please alse try your best to avoid merging commit message by using rebase.</p>
+
 </body>
 
 </html>
