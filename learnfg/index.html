@@ -1,23 +1,144 @@
-<!doctype html>
-<html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Learning finger-gaiting</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-        
-        <link rel="stylesheet" href="css/styles.css">
-        <script src="js/modernizr-2.8.3.min.js"></script>
-    </head>
-    <body>
-	<p> UNDER CONSTRUCTION </p>
-        <p>This is a landing page for "Learning object agnostic finger-gaiting via initial state distributions: a feasibility study".</p>
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>On Feasibility of Learning Finger-gaiting In-hand Manipulation using Intrinsic Sensing</title>
+		<meta charset="utf-8" />
+		 <meta name="viewport" content="width=1000">
+		<link rel="stylesheet" href="assets/css/main.css" />
+		 <!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-YX7PYK3LYC"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-YX7PYK3LYC');
+		</script>
+
+		<script type="text/x-mathjax-config">
+			MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+		</script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+	    <meta property="og:type"          content="website" />
+	    <meta property="og:title"         content="On Feasibility of Learning Finger-gaiting In-hand Manipulation using Intrinsic Sensing" />
+	    <meta property="og:description"   content="Finger-gaiting manipulation is an important skill to achieve large-angle in-hand re-orientation of objects. However, achieving these gaits with arbitrary orientations of the hand is challenging due to the unstable nature of the task. In this work, we use model-free reinforcement learning (RL) to learn finger-gaiting only via precision grasps and demonstrate finger-gaiting for rotation about an axis purely using on-board proprioceptive and tactile feedback. To tackle the inherent instability of precision grasping, we propose the use of initial state distributions that enable effective exploration of the state space. Our method can learn finger gaiting with significantly improved sample complexity than the state-of-the-art. The policies we obtain are both robust and generalizable to novel objects." />
 
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/jquery-{{JQUERY_VERSION}}.min.js"><\/script>')</script>
-        <script src="js/script.js"></script>
-    </body>
+	</head>
+	<body id="top">
+
+
+		<!-- Main -->
+			<div id="main" style="padding-bottom:1em; padding-top: 5em; width: 60em; max-width: 70em; margin-left: auto; margin-right: auto;">
+					<section id="four">
+
+						<!-- <h1 style="text-align: center; margin-bottom: 0;"><font color="4e79a7">Grasping in the Wild:</font> </h1>
+						<h2 style="text-align: center;">Learning 6DoF Closed-Loop Grasping from Low-Cost Demonstrations</h2> -->
+						<h1 style="text-align: center; margin-bottom: 0; color: #4e79a7; font-size: 180%; margin-bottom: 1em;">On Feasibility of Learning Finger-gaiting In-hand Manipulation using Intrinsic Sensing*</h1>
+						<p style="text-align: center; margin-bottom: 0; color: #4e79a7; font-size: 100%; margin-bottom: 1em;">(*This webpage is under heavy construction)</p>
+						<span class="image right" style="max-width: 50%; margin-top: 0.5em; margin-bottom: 0;">
+							<img src="images/synergy-and-tasks.png" alt="" />
+						</span>
+						<div class="12u$" style="text-align: center;"><img src="images/eye_candy.svg" alt="" height="200" /></div>
+						<p style="text-align: justify;">
+							Finger-gaiting manipulation is an important skill to achieve large-angle in-hand re-orientation of objects. However, achieving these gaits with arbitrary orientations of the hand is challenging due to the unstable nature of the task. In this work, we use model-free reinforcement learning (RL) to learn finger-gaiting only via precision grasps and demonstrate finger-gaiting for rotation about an axis purely using on-board proprioceptive and tactile feedback. To tackle the inherent instability of precision grasping, we propose the use of initial state distributions that enable effective exploration of the state space. Our method can learn finger gaiting with significantly improved sample complexity than the state-of-the-art. The policies we obtain are both robust and generalizable to novel objects. 
+						</p>
+
+						<h3>Paper</h3>
+
+						<!-- <hr/> -->
+						<p style="margin-bottom: 1em;">Latest version: <a href="paper.pdf">here</a></p>
+
+						<div class="12u$"><a href=""><span class="image fit" style="border: 1px solid; border-color: #888888;"><img src="images/paper-thumbnail.jpg" alt="" /></span></a></div>
+
+
+						<!-- <hr> -->
+						<div class="row">
+							<div class="12u$ 12u$(xsmall)" style="text-align: center;">
+								<iframe id="match-video" width="640" height="360" style="margin-bottom: 2em; margin-left: auto; margin-right: auto; display:block;" src="https://www.youtube.com/embed/axO7b7yBxEc" frameborder="0" allowfullscreen></iframe>
+							</div>
+						</div>
+						<hr>
+
+						<h3>Finger-gaiting</h3>
+						<hr>
+						<div class="row">
+							<div class="col">
+								<iframe id="match-video" width="160" height="160" style="margin-bottom: 2em; margin-left: auto; margin-right: auto; display:block;" src="https://www.youtube.com/embed/BIKGy0IwlOg" frameborder="0" allowfullscreen></iframe>
+							</div>
+							<div class="col">
+								<iframe id="match-video" width="160" height="160" style="margin-bottom: 2em; margin-left: auto; margin-right: auto; display:block;" src="https://www.youtube.com/embed/vZGtPqAgBSc" frameborder="0" allowfullscreen></iframe>
+							</div>
+							<div class="col">
+								<iframe id="match-video" width="160" height="160" style="margin-bottom: 2em; margin-left: auto; margin-right: auto; display:block;" src="https://www.youtube.com/embed/L9I4lcrW3xk" frameborder="0" allowfullscreen></iframe>
+							</div>
+							<div class="col">
+								<iframe id="match-video" width="160" height="160" style="margin-bottom: 2em; margin-left: auto; margin-right: auto; display:block;" src="https://www.youtube.com/embed/svn6ML991Ak" frameborder="0" allowfullscreen></iframe>
+							</div>
+							<div class="col">
+								<iframe id="match-video" width="160" height="160" style="margin-bottom: 2em; margin-left: auto; margin-right: auto; display:block;" src="https://www.youtube.com/embed/znbQjytjaWw" frameborder="0" allowfullscreen></iframe>
+							</div>
+						</div>
+						<h3>Finger-pivoting</h3>
+						<hr>
+						<div class="row">
+							<div class="col">
+								<iframe id="match-video" width="160" height="160" style="margin-bottom: 2em; margin-left: auto; margin-right: auto; display:block;" src="https://www.youtube.com/embed/rqM8GtGNz34" frameborder="0" allowfullscreen></iframe>
+							</div>
+							<div class="col">
+								<iframe id="match-video" width="160" height="160" style="margin-bottom: 2em; margin-left: auto; margin-right: auto; display:block;" src="https://www.youtube.com/embed/2amWE25fuUU" frameborder="0" allowfullscreen></iframe>
+							</div>
+							<div class="col">
+								<iframe id="match-video" width="160" height="160" style="margin-bottom: 2em; margin-left: auto; margin-right: auto; display:block;" src="https://www.youtube.com/embed/jSGvtSoM_Ck" frameborder="0" allowfullscreen></iframe>
+							</div>
+							<div class="col">
+								<iframe id="match-video" width="160" height="160" style="margin-bottom: 2em; margin-left: auto; margin-right: auto; display:block;" src="https://www.youtube.com/embed/KXIGIleAAUQ" frameborder="0" allowfullscreen></iframe>
+							</div>
+						</div>
+						<hr>
+
+
+						<h3>Team</h3>
+						<section>
+							<div class="box alt" style="margin-bottom: 1em;">
+								<div class="row 50% uniform" style="width: 90%;">
+									<div class="2u" style="font-size: 0.7em; line-height: 1.5em; text-align: center;"><a href="https://www.gagankhandate.com/"><span class="image fit" style="margin-bottom: 0.5em;"><img src="images/gagan.jpg" alt="" style="border-radius: 50%;" /></span>Zhanpeng He <sup>1</sup></a></div>
+									<div class="2u" style="font-size: 0.7em; line-height: 1.5em; text-align: center;"><a href="https://roam.me.columbia.edu/matei-ciocarlie"><span class="image fit" style="margin-bottom: 0.5em;"><img src="images/matei.jpg" alt="" style="border-radius: 50%;" /></span>Matei Ciocarlie <sup>1</sup></a></div>
+								</div>
+							</div>
+						</section>
+						<sup>1</sup> <a href="https://roam.me.columbia.edu/">ROAM Lab</a>, Columbia University&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<hr>
+						<div class="row" style="margin-top: 0em; margin-bottom: -1em">
+							<div class="12u$ 12u$(xsmall)">
+							  <h3>BibTeX</h3>
+							  <pre><code>TBD</code></pre>
+							</div>
+						</div>
+
+						<hr/ style="margin-top: 1em">
+				        <h3>Contact</h3>
+				        <p>If you have any questions, please feel free to contact <a href="https://www.gagankhandate.com/">Gagan Khandate</a></p>
+						<hr/>
+					</section>
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<ul class="copyright">
+						<li>Meet <a href="https://en.wikipedia.org/wiki/Danbo_(character)">Danbo</a> the cardboard robot.</li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+	</body>
 </html>
