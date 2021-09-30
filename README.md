@@ -10,6 +10,7 @@
         <li><a href="https://roamlab.github.io/hwasp/"><strong>HWasP</strong>: Hardware as Policy: Mechanical and Computational Co-Optimization using Deep Reinforcement Learning</a></li>
         <li><a href="https://roamlab.github.io/discosyn/"><strong>DiscoSyn</strong>: Discovering Synergies for Robot Manipulation with Multi-Task Reinforcement Learning</a></li>
         <li><a href="https://roamlab.github.io/learnfg/"><strong>In-Hand Manipulation</strong>: On the Feasibility of Learning Finger-gaiting In-hand Manipulation with Intrinsic Sensing</a></li>
+        <li><a href="https://roamlab.github.io/dssm/"><strong>DSSM</strong>: Adaptive Semi-Supervised Intent Inferral to Control a Powered Hand Orthosis for Stroke</a></li>
     </ul>
 </p>
 
