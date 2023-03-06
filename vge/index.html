@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Value Guided Exploration</title>
+		<meta charset="utf-8" />
+		 <meta name="viewport" content="width=1000">
+		<link rel="stylesheet" href="assets/css/main.css" />
+		 <!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-YX7PYK3LYC"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-YX7PYK3LYC');
+		</script>
+
+		<script type="text/x-mathjax-config">
+			MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+		</script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+	    <meta property="og:type"          content="website" />
+	    <meta property="og:title"         content="Value Guided Exploration with Sub-optimal Controllers for Learning Dexterous Manipulation" />
+	    <meta property="og:description"   content="Recently, reinforcement learning has allowed dexterous manipulation skills with increasing complexity. Nonetheless, learning these skills in simulation still exhibits poor sample-efficiency which stems from the fact these skills are learned from scratch without the benefit of any domain expertise. In this work, we aim to improve the sample-efficiency of learning dexterous in-hand manipulation skills using sub-optimal controllers available via domain knowledge. Our framework optimally queries the sub-optimal controllers and guides exploration toward state-space relevant to the task thereby demonstrating improved sample complexity. We show that our framework allows learning from highly sub-optimal controllers and we are the first to demonstrate learning hard-to-explore finger-gaiting in-hand manipulation skills without the use of an exploratory reset distribution." />
+
+
+	</head>
+	<body id="top">
+
+
+		<!-- Main -->
+			<div id="main" style="padding-bottom:1em; padding-top: 5em; width: 60em; max-width: 70em; margin-left: auto; margin-right: auto;">
+					<section id="four">
+
+						<!-- <h1 style="text-align: center; margin-bottom: 0;"><font color="4e79a7">Grasping in the Wild:</font> </h1>
+						<h2 style="text-align: center;">Learning 6DoF Closed-Loop Grasping from Low-Cost Demonstrations</h2> -->
+						<h1 style="text-align: center; margin-bottom: 0; color: #4e79a7; font-size: 180%; margin-bottom: 1em;">Value Guided Exploration with Sub-optimal Controllers for Learning Dexterous Manipulation</h1>
+						<!-- <p style="text-align: center; margin-bottom: 0; color: #4e79a7; font-size: 100%; margin-bottom: 1em;">(*This webpage is under heavy construction)</p> -->
+						<span class="image right" style="max-width: 50%; margin-top: 0.5em; margin-bottom: 0;">
+							<img src="images/synergy-and-tasks.png" alt="" />
+						</span>
+						<div class="12u$" style="text-align: center;"><img src="images/eye-candy.svg" alt="" height="500" /></div>
+						<p style="text-align: justify;">
+							Recently, reinforcement learning has allowed dexterous manipulation skills with increasing complexity. Nonetheless, learning these skills in simulation still exhibits poor sample-efficiency which stems from the fact these skills are learned from scratch without the benefit of any domain expertise. In this work, we aim to improve the sample-efficiency of learning dexterous in-hand manipulation skills using sub-optimal controllers available via domain knowledge. Our framework optimally queries the sub-optimal controllers and guides exploration toward state-space relevant to the task thereby demonstrating improved sample complexity. We show that our framework allows learning from highly sub-optimal controllers and we are the first to demonstrate learning hard-to-explore finger-gaiting in-hand manipulation skills without the use of an exploratory reset distribution.
+						</p>
+
+						<h3>Paper</h3>
+
+						<!-- <hr/> -->
+						<p style="margin-bottom: 1em;">Latest version: <a href="paper.pdf">here</a></p>
+
+						<div class="12u$"><a href=""><span class="image fit" style="border: 1px solid; border-color: #888888;"><img src="images/paper-thumbnail.jpg" alt="" /></span></a></div>
+
+
+						<!-- <hr> -->
+
+                        <!-- <iframe width="1280" height="720" src="https://www.youtube.com/embed/Rpjh1trCstM" title="Value Guided Exploration with Sub-optimal Controllers for Dexterous Manipulation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+						<div class="row">
+							<div class="12u$ 12u$(xsmall)" style="text-align: center;">
+								<iframe id="match-video" width="1080" height="607.5" style="margin-bottom: 2em; margin-left: auto; margin-right: auto; display:block;" src="https://www.youtube.com/embed/Rpjh1trCstM" frameborder="0" allowfullscreen></iframe>
+							</div>
+						</div>
+						<hr>
+
+						<!-- <h3>Finger-gaiting</h3>
+						<hr>
+						<div class="row">
+							<div class="col">
+								<iframe id="match-video" width="160" height="160" style="margin-bottom: 2em; margin-left: auto; margin-right: auto; display:block;" src="https://www.youtube.com/embed/BIKGy0IwlOg" frameborder="0" allowfullscreen></iframe>
+							</div>
+							<div class="col">
+								<iframe id="match-video" width="160" height="160" style="margin-bottom: 2em; margin-left: auto; margin-right: auto; display:block;" src="https://www.youtube.com/embed/vZGtPqAgBSc" frameborder="0" allowfullscreen></iframe>
+							</div>
+							<div class="col">
+								<iframe id="match-video" width="160" height="160" style="margin-bottom: 2em; margin-left: auto; margin-right: auto; display:block;" src="https://www.youtube.com/embed/L9I4lcrW3xk" frameborder="0" allowfullscreen></iframe>
+							</div>
+							<div class="col">
+								<iframe id="match-video" width="160" height="160" style="margin-bottom: 2em; margin-left: auto; margin-right: auto; display:block;" src="https://www.youtube.com/embed/svn6ML991Ak" frameborder="0" allowfullscreen></iframe>
+							</div>
+							<div class="col">
+								<iframe id="match-video" width="160" height="160" style="margin-bottom: 2em; margin-left: auto; margin-right: auto; display:block;" src="https://www.youtube.com/embed/znbQjytjaWw" frameborder="0" allowfullscreen></iframe>
+							</div>
+						</div>
+						<h3>Finger-pivoting</h3>
+						<hr>
+						<div class="row">
+							<div class="col">
+								<iframe id="match-video" width="160" height="160" style="margin-bottom: 2em; margin-left: auto; margin-right: auto; display:block;" src="https://www.youtube.com/embed/rqM8GtGNz34" frameborder="0" allowfullscreen></iframe>
+							</div>
+							<div class="col">
+								<iframe id="match-video" width="160" height="160" style="margin-bottom: 2em; margin-left: auto; margin-right: auto; display:block;" src="https://www.youtube.com/embed/2amWE25fuUU" frameborder="0" allowfullscreen></iframe>
+							</div>
+							<div class="col">
+								<iframe id="match-video" width="160" height="160" style="margin-bottom: 2em; margin-left: auto; margin-right: auto; display:block;" src="https://www.youtube.com/embed/jSGvtSoM_Ck" frameborder="0" allowfullscreen></iframe>
+							</div>
+							<div class="col">
+								<iframe id="match-video" width="160" height="160" style="margin-bottom: 2em; margin-left: auto; margin-right: auto; display:block;" src="https://www.youtube.com/embed/KXIGIleAAUQ" frameborder="0" allowfullscreen></iframe>
+							</div>
+						</div>
+						<hr> -->
+
+
+						<h3>Team</h3>
+						<section>
+							<div class="box alt" style="margin-bottom: 1em;">
+								<div class="row 50% uniform" style="width: 90%;">
+									<div class="2u" style="font-size: 0.7em; line-height: 1.5em; text-align: center;"><a href="https://gagkhan.github.io/"><span class="image fit" style="margin-bottom: 0.5em;"><img src="images/gagan.jpg" alt="" style="border-radius: 50%;" /></span>Gagan Khandate</a></div>
+                                    <div class="2u" style="font-size: 0.7em; line-height: 1.5em; text-align: center;"><a href="https://xw2815.wixsite.com/xingshengwei"><span class="image fit" style="margin-bottom: 0.5em;"><img src="images/xinsgheng.jpeg" alt="" style="border-radius: 50%;" /></span>Xingsheng Wei</div>
+									<div class="2u" style="font-size: 0.7em; line-height: 1.5em; text-align: center;"><a href="https://cameron-mehlman.com/"><span class="image fit" style="margin-bottom: 0.5em;"><img src="images/cameron.jpeg" alt="" style="border-radius: 50%;" /></span>Cameron Mehlman</a></div>
+									<div class="2u" style="font-size: 0.7em; line-height: 1.5em; text-align: center;"><a href="https://www.engineering.columbia.edu/faculty/matei-ciocarlie"><span class="image fit" style="margin-bottom: 0.5em;"><img src="images/matei.jpg" alt="" style="border-radius: 50%;" /></span>Matei Ciocarlie</a></div>
+								</div>
+							</div>
+						</section>
+						<sup>1</sup> <a href="https://roam.me.columbia.edu/">ROAM Lab</a>, Columbia University&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+						<hr>
+						<div class="row" style="margin-top: 0em; margin-bottom: -1em">
+							<div class="12u$ 12u$(xsmall)">
+							  <h3>BibTeX</h3>
+							  <pre><code>TBD</code></pre>
+							</div>
+						</div>
+
+						<hr style="margin-top: 1em">
+				        <h3>Contact</h3>
+				        <p>If you have any questions, please feel free to contact <a href="https://gagkhan.github.io/">Gagan Khandate</a></p>
+						<hr/>
+					</section>
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<ul class="copyright">
+						<li>Meet <a href="https://en.wikipedia.org/wiki/Danbo_(character)">Danbo</a> the cardboard robot.</li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+	</body>
+</html>

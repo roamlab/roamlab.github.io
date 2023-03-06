@@ -11,11 +11,13 @@
         <li><a href="https://roamlab.github.io/discosyn/"><strong>DiscoSyn</strong>: Discovering Synergies for Robot Manipulation with Multi-Task Reinforcement Learning</a></li>
         <li><a href="https://roamlab.github.io/learnfg/"><strong>In-Hand Manipulation</strong>: On the Feasibility of Learning Finger-gaiting In-hand Manipulation with Intrinsic Sensing</a></li>
         <li><a href="https://roamlab.github.io/dssm/"><strong>DSSM</strong>: Adaptive Semi-Supervised Intent Inferral to Control a Powered Hand Orthosis for Stroke</a></li>
+        <li><a href="https://sbrl.cs.columbia.edu/"><strong>SBRL</strong>: Sampling-based Exploration for Reinforcement Learning of Dexterous Manipulation</a></li>
+        <li><a href="https://roamlab.github.io/vge/"><strong>VGE</strong>: Value Guided Exploration with Sub-optimal Controllers for Learning Dexterous Manipulation</a></li>
     </ul>
 </p>
 
 <h3>Committing to the roamlab.github.io repo</h3>
-<p>Please format your commit message in this format: [PROJECT_NAME]: [COMMIT_MESSAGE]. Please alse try your best to avoid merging commit message by using rebase.</p>
+<p>Please format your commit message in this format: [PROJECT_NAME]: [COMMIT_MESSAGE]. Please also try your best to avoid merging commit messages by using rebase.</p>
 
 </body>
 
