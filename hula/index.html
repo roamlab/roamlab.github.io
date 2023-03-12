@@ -1,0 +1,151 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Decision Making for Human-in-the-loop Robotic Agents via Uncertainty-Aware Reinforcement Learning</title>
+		<meta charset="utf-8" />
+		 <meta name="viewport" content="width=1000">
+		<link rel="stylesheet" href="assets/css/main.css" />
+		 <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+          ga('create', 'UA-89797207-1', 'auto');
+          ga('send', 'pageview');
+		</script>
+
+		<script type="text/x-mathjax-config">
+			MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+		</script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+	    <meta property="og:type"          content="website" />
+	    <meta property="og:title"         content="Discovering Synergies for Robot Manipulation with Multi-Task Reinforcement Learning" />
+	    <meta property="og:description"   content="Learning to control full dimensional robotic manipulators for dexterous tasks is a challenging problem. Humans are able to achieve complex motions using motor synergies, which utilize the co-activation of muscles. Inspired by human-like manipulations, researchers have studied generating postural synergies for robotic hand to accomplish grasping tasks. However, many of these works require pre-collected data for a single robotic task to derive a subspace using dimensionality reduction. Deriving synergies using multiple tasks can lead to a subspace that enables robots to learn manipulating new objects efficiently. In this paper, we present a framework, that simultaneously discover a synergy space and policy that operates on a low-dimensional action space to accomplish diverse manipulation tasks. We demonstrate that our method is able to learns multiple tasks using a few synergies and outperform methods that uses dimension reduction on collected solutions." />
+
+
+	</head>
+	<body id="top">
+
+
+		<!-- Main -->
+			<div id="main" style="padding-bottom:1em; padding-top: 5em; width: 60em; max-width: 70em; margin-left: auto; margin-right: auto;">
+					<section id="four">
+						<h1 style="text-align: center; margin-bottom: 0; color: #4e79a7; font-size: 180%; margin-bottom: 1em;">Discovering Synergies for Robot Manipulation with Multi-Task Reinforcement Learning</h1>
+						<span class="image right" style="max-width: 50%; margin-top: 0.5em; margin-bottom: 0;">
+							<img src="images/synergy-and-tasks.png" alt="" />
+						</span>
+						<p>
+							Controlling robotic manipulators with high-dimensional action spaces for dexterous tasks is a challenging problem. Inspired by human manipulation, researchers have studied generating and using postural synergies for robot hands to accomplish manipulation tasks, leveraging the lower dimensional nature of synergistic action spaces. However, many of these works require pre-collected data from an existing controller in order to derive such a subspace by means of dimensionality reduction. In this paper, we present a framework that simultaneously discovers a synergy space and a multi-task policy that operates on this low-dimensional action space to accomplish diverse manipulation tasks. We demonstrate that our end-to-end method is able to perform multiple tasks using few synergies, and outperforms sequential methods that apply dimensionality reduction to independently collected data. We also show that deriving synergies using multiple tasks can lead to a subspace that enables robots to efficiently learn new manipulation tasks and interactions with new objects.
+						</p>
+
+						<hr style="margin-top: 0em;">
+						<h3>Paper</h3>
+
+						<!-- <hr/> -->
+						<p style="margin-bottom: 1em;">Latest version: <a href="https://arxiv.org/abs/2110.01530">arxiv</a></p>
+
+						<div class="12u$"><a href=""><span class="image fit" style="border: 1px solid; border-color: #888888;"><img src="images/paper-thumbnail.jpg" alt="" /></span></a></div>
+
+
+						<hr>
+						<div class="row">
+							<div class="12u$ 12u$(xsmall)" style="text-align: center;">
+								<h3>Technical Summary Video</h3>
+								<iframe id="match-video" width="640" height="360" style="margin-bottom: 2em; margin-left: auto; margin-right: auto; display:block;" src="https://www.youtube.com/embed/cyfkJ3yLgLU" frameborder="0" allowfullscreen></iframe>
+							</div>
+						</div>
+
+						<hr>
+
+						<h3>Proof for Eq. 1</h3>
+						<p>
+							Eq. 1. introduces a lower bound for $\mathbb{H}(\pi_{task}(a_t | s_t, n))$, which encourages our agent to learn a control subspace that is compact but still contains diverse hand postures that are useful various manipulation tasks.
+							Due to the page limit for ICRA, we present the an informal proof for Eq. 1 here. We first present a lower bound for $\mathbb{H}(p(x))$, which is useful to get a lowerbound in Eq. 1:
+						</p>
+						<p>
+							$$
+								\begin{eqnarray}
+								   \mathbb{H}(p(x)) &=& \int p(x) \log(\dfrac{1}{p(x)}) dx \nonumber \\
+									                 &=& \int p(x) \log(\int q(z|x)\dfrac{1}{p(x)}dz) dx \nonumber \\
+													 &=& \int p(x) \log(\int q(z|x)\dfrac{p(z|x)}{p(x, z)}dz) dx \nonumber \\
+													 &\geq& \int p(x) \int q(z|x)\log(\dfrac{p(z|x)}{p(x, z)}dz) dx \nonumber \\
+													 &=& \int\int p(x, z) log(\dfrac{q(z|x)}{p(x, z)}dz) dx. \tag{4}
+
+							  	\end{eqnarray}
+							$$
+							Plugging Eq. 4 into $\mathbb{H}(\pi_{task}(a_t | s_t, n))$:
+							$$
+							\begin{eqnarray}
+								\mathbb{H}[\pi_\theta(a_t|s_t, n)] &=& E_{\pi}[-\log \pi_\theta(a_t|s_t, n)] \nonumber \\
+								&\geq& E_{\pi_\theta(a, z | s, n)} \Big[ \log(\dfrac{q(z| a, s, n)}{\pi(a, z| s, n)}) \Big] \nonumber
+							\end{eqnarray}
+							$$
+						</p>
+						<hr>
+
+						<h3>Task Sets Details</h3>
+						<div class="12u$"><span class="image fit" ><img src="images/discotask.jpg" alt="" /></span></div>
+						<p>
+							Here, we describe the details of each environment:
+							<ul>
+								<li><strong>Task set #1:</strong> the valve turning tasks only variate on the shape of the valve. The observations of these tasks are $(qpos_{hand}, qpos_{valve}, qvel_{valve})$, where $qpos_{hand}$ and $qpos_{valve}$ are the joint position of the hand and the valve, $qvel_{valve}$ is the joint velocity of the valve. The reward function of all tasks in task set \#1 are $r_{valve} = a * qvel_{valve} + b$, where $a$ and $b$ are constant and the same across all tasks in task set \#1.</li>
+								<li><strong>Dice reorienting:</strong> in this task, the shadow hand is asked to reorient the dice to some target poses. The observation of this tasks contains: the joint position of the hand $qpos_{hand}$, the pose of the dice $qpos_{dice}$, the velocity of the dice $qvel_{dice}$ and the target pose $qpos_{target}$. The reward function we use here is a function of the distance between the current pose and the target pose: $r_{dice} = f(qpos_{dice}, qpos_{target})$, where $f$ represent a distance function.</li>
+								<li><strong>Weight pulling:</strong> in this task, we ask the shadow hand to manipulate a soft rope to pull a cube that is attached to the end of the rope. The observations of this task contain the joint position of the hand $qpos_{hand}$ and the pose of the cube $qpos_{cube}$. The reward function of this task is a linear function of the height of the cube: $r_{weightpull} = m * h_{cube} + n$, where $m$, $n$ are constants and $h_{cube}$ is the height of the cube.</li>
+								<li><strong>Screwing:</strong> in this task, we ask the shadow hand to rotate a screw driver to make it screw into a wood block. The screw driver has two joints: a hinge joint and a slide joint on the x-axis. The position of the slide joint is linearly dependent on the position of the hinge joint. The observations of this tasks are the the joint position of the hand $qpos_{hand}$, the joint position and velocity of the screw driver $qpos_{screw}$, $qvel_{screw}$.</li>
+							</ul>
+						</p>
+						<hr>
+						<h3>Team</h3>
+						<section>
+							<div class="box alt" style="margin-bottom: 1em;">
+								<div class="row 50% uniform" style="width: 90%;">
+									<div class="2u" style="font-size: 0.7em; line-height: 1.5em; text-align: center;"><a href="https://zhanpenghe.github.io/"><span class="image fit" style="margin-bottom: 0.5em;"><img src="images/zhanpeng_thumbnail.jpg" alt="" style="border-radius: 50%;" /></span>Zhanpeng He <sup>1</sup></a></div>
+									<div class="2u" style="font-size: 0.7em; line-height: 1.5em; text-align: center;"><a href="https://roam.me.columbia.edu/matei-ciocarlie"><span class="image fit" style="margin-bottom: 0.5em;"><img src="images/matei.jpg" alt="" style="border-radius: 50%;" /></span>Matei Ciocarlie <sup>1</sup></a></div>
+
+								</div>
+							</div>
+						</section>
+						<sup>1</sup> <a href="https://roam.me.columbia.edu/">ROAM Lab</a>, Columbia University&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+						<hr>
+						<div class="row" style="margin-top: 0em; margin-bottom: -1em">
+							<div class="12u$ 12u$(xsmall)">
+							  <h3>BibTeX</h3>
+							  <pre><code>@article{he2022discosyn,
+    title={Discovering Synergies for Robot Manipulation with Multi-Task Reinforcement Learning},
+    author={Zhanpeng, He and Matei, Ciocarlie},
+    journal={IEEE Robotics and Automation},
+    year={2022},
+    publisher={IEEE}
+}</code></pre>
+							</div>
+						</div>
+
+						<hr/>
+				        <h3>Contact</h3>
+				        <p>If you have any questions, please feel free to contact <a href="http://zhanpenghe.github.io/">Zhanpeng He</a></p>
+						<hr/>
+
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<ul class="copyright">
+						<li>Meet <a href="https://en.wikipedia.org/wiki/Danbo_(character)">Danbo</a> the cardboard robot.</li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+	</body>
+</html>
