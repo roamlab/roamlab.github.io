@@ -15,6 +15,7 @@
         <li><a href="https://roamlab.github.io/vge/"><strong>GE</strong>: Dexterous In-hand Manipulation by Guiding Exploration with Simple Sub-skills Controllers</a></li>
         <li><a href="https://roamlab.github.io/hula/"><strong>HULA</strong>: Decision Making for Human-in-the-loop Robotic Agents via Uncertainty-Aware Reinforcement Learning</a></li>
         <li><a href="https://roamlab.github.io/morph/"><strong>MORPH</strong>: Design Co-optimization with Reinforcement Learning via a Differentiable Hardware Model Proxy</a></li>
+        <li><a href="https://roamlab.github.io/tentamorph/"><strong>TentaMORPH</strong>: Task-based Design and Policy Co-Optimization for Tendon-driven Underactuated Kinematic Chains</a></li>
     </ul>
 </p>
 
