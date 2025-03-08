@@ -30,7 +30,6 @@
     outline: none; /* Removes the dotted outline */
 }
 
-
 .author-container {
     text-align: center;
     margin-bottom: 1em;
@@ -38,7 +37,7 @@
 
 .author-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5 columns in the first row */
+    grid-template-columns: repeat(5, 1fr); /* First row has 5 columns */
     grid-template-rows: auto auto; /* Two rows */
     gap: 10px; /* Space between names */
     justify-items: center; /* Centers content within each grid cell */
@@ -46,12 +45,36 @@
     margin: auto;
 }
 
-.author-grid a {
-    text-decoration: none;
-    color: #4e79a7; /* Matching the title color */
-    font-weight: bold;
-    font-size: 1em;
+/* Adjust the layout of the second row */
+.author-grid > a:nth-child(n+6) {
+    grid-column: span 1; /* This ensures items in the second row will align nicely */
+    justify-self: center; /* Center items in the second row */
 }
+
+/* Optional: Add styles for image sizes or other aspects */
+.author-grid img {
+    width: 100px; /* Set consistent image width */
+    height: 100px; /* Set consistent image height */
+    object-fit: cover; /* Ensures image aspect ratio */
+    border-radius: 50%; /* Round images */
+}
+
+.author-grid a {
+    text-decoration: none; /* Removes dotted underline */
+    color: #4e79a7;
+    white-space: nowrap; /* Prevent name from wrapping to the next line */
+    font-size: 1em; /* Adjust font size if needed */
+    font-weight: bold; /* Optional, to make the name bold */
+    display: block; /* Ensure block level display for proper alignment */
+}
+
+/* Optional: Add styles to remove focus outline */
+.author-grid a:focus {
+    outline: none;
+}
+
+
+
 
 .equal-contribution {
     font-size: 0.9em;
