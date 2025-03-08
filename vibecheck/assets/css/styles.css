@@ -27,6 +27,7 @@
 
 .team-member a {
     text-decoration: none;
+    outline: none; /* Removes the dotted outline */
 }
 
 
@@ -37,9 +38,10 @@
 
 .author-grid {
     display: grid;
-    grid-template-rows: repeat(2, auto);
+    grid-template-columns: repeat(5, 1fr); /* 5 columns in the first row */
+    grid-template-rows: auto auto; /* Two rows */
     gap: 10px; /* Space between names */
-    justify-content: center;
+    justify-items: center; /* Centers content within each grid cell */
     max-width: 600px;
     margin: auto;
 }
