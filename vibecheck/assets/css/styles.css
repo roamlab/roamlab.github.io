@@ -37,7 +37,7 @@
 
 .author-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* First row has 5 columns */
+    grid-template-columns: repeat(5, 1fr); /* 5 equal-width columns for the first row */
     grid-template-rows: auto auto; /* Two rows */
     gap: 10px; /* Space between names */
     justify-items: center; /* Centers content within each grid cell */
@@ -45,10 +45,20 @@
     margin: auto;
 }
 
-/* Adjust the layout of the second row */
+/* Ensure the second row is centered properly by spanning 1 item per column */
+.author-grid a {
+    text-decoration: none; /* Removes dotted underline */
+    color: #4e79a7;
+    white-space: nowrap; /* Prevent name from wrapping to the next line */
+    font-size: 1em; /* Adjust font size if needed */
+    font-weight: bold; /* Optional, to make the name bold */
+    display: block; /* Ensure block level display for proper alignment */
+}
+
+/* Ensure the second row aligns in the center */
 .author-grid > a:nth-child(n+6) {
-    grid-column: span 1; /* This ensures items in the second row will align nicely */
-    justify-self: center; /* Center items in the second row */
+    grid-column: span 1; /* Ensures items only take one column */
+    justify-self: center; /* Centers the second row items */
 }
 
 /* Optional: Add styles for image sizes or other aspects */
@@ -57,15 +67,6 @@
     height: 100px; /* Set consistent image height */
     object-fit: cover; /* Ensures image aspect ratio */
     border-radius: 50%; /* Round images */
-}
-
-.author-grid a {
-    text-decoration: none; /* Removes dotted underline */
-    color: #4e79a7;
-    white-space: nowrap; /* Prevent name from wrapping to the next line */
-    font-size: 1em; /* Adjust font size if needed */
-    font-weight: bold; /* Optional, to make the name bold */
-    display: block; /* Ensure block level display for proper alignment */
 }
 
 /* Optional: Add styles to remove focus outline */
