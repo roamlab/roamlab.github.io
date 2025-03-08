@@ -36,19 +36,23 @@
 }
 
 .author-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5 equal-width columns for the first row */
-    grid-template-rows: auto auto; /* Two rows */
-    gap: 10px; /* Space between names */
-    justify-items: center; /* Centers content within each grid cell */
-    max-width: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    max-width: 100%;
     margin: auto;
 }
 
-.author-grid > a:nth-child(n+6) {
-    grid-column: span 5; /* Span all columns to center the second row */
-    justify-self: center; /* Center the second row items */
-}
+/* .author-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: auto auto;
+    gap: 10px;
+    justify-items: center;
+    max-width: 600px;
+    margin: auto;
+} */
 
 
 /* Ensure the second row is centered properly by spanning 1 item per column */
@@ -60,21 +64,6 @@
     font-weight: bold; /* Optional, to make the name bold */
     display: block; /* Ensure block level display for proper alignment */
 }
-
-
-/* Optional: Add styles for image sizes or other aspects */
-.author-grid img {
-    width: 100px; /* Set consistent image width */
-    height: 100px; /* Set consistent image height */
-    object-fit: cover; /* Ensures image aspect ratio */
-    border-radius: 50%; /* Round images */
-}
-
-/* Optional: Add styles to remove focus outline */
-.author-grid a:focus {
-    outline: none;
-}
-
 
 
 
