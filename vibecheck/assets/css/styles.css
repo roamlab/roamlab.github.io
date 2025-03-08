@@ -25,6 +25,11 @@
     margin: 0;
 }
 
+.team-member a {
+    text-decoration: none;
+}
+
+
 .author-container {
     text-align: center;
     margin-bottom: 1em;
@@ -32,7 +37,7 @@
 
 .author-grid {
     display: grid;
-    grid-template-columns: repeat(3, auto); /* 3 columns per row */
+    grid-template-rows: repeat(2, auto);
     gap: 10px; /* Space between names */
     justify-content: center;
     max-width: 600px;
