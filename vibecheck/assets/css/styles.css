@@ -45,6 +45,12 @@
     margin: auto;
 }
 
+.author-grid > a:nth-child(n+6) {
+    grid-column: span 5; /* Span all columns to center the second row */
+    justify-self: center; /* Center the second row items */
+}
+
+
 /* Ensure the second row is centered properly by spanning 1 item per column */
 .author-grid a {
     text-decoration: none; /* Removes dotted underline */
@@ -55,11 +61,6 @@
     display: block; /* Ensure block level display for proper alignment */
 }
 
-/* Ensure the second row aligns in the center */
-.author-grid > a:nth-child(n+6) {
-    grid-column: span 1; /* Ensures items only take one column */
-    justify-self: center; /* Centers the second row items */
-}
 
 /* Optional: Add styles for image sizes or other aspects */
 .author-grid img {
