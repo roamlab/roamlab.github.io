@@ -24,3 +24,36 @@
 .team-member p {
     margin: 0;
 }
+
+.author-container {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.author-grid {
+    display: grid;
+    grid-template-columns: repeat(3, auto); /* 3 columns per row */
+    gap: 10px; /* Space between names */
+    justify-content: center;
+    max-width: 600px;
+    margin: auto;
+}
+
+.author-grid a {
+    text-decoration: none;
+    color: #4e79a7; /* Matching the title color */
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.equal-contribution {
+    font-size: 0.9em;
+    font-style: italic;
+    margin-top: 5px;
+}
+
+.affiliation {
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 5px;
+}
