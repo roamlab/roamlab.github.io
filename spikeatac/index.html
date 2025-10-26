@@ -1,0 +1,440 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="SpikeATac" />
+    <meta name="keywords" content="Tactile Sensing, Dexterous Manipulation, Real Robot Reinforcement Learning, On-Robot RL" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SpikeATac</title>
+
+    <link rel="icon" type="image/svg+xml" href="static/images/favicon-columbia-crown.png" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-20T0WPWX4G"></script> -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-20T0WPWX4G");
+    </script>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet" />
+    <link rel="stylesheet" href="static/css/bulma.min.css" />
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css" />
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" />
+    <link rel="stylesheet" href="static/css/index.css" />
+
+    <script src="https://kit.fontawesome.com/19914a84eb.js" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="static/js/bulma-carousel.min.js"></script>
+    <script src="static/js/bulma-slider.min.js"></script>
+    <script src="static/js/index.js"></script>
+  </head>
+
+  <body>
+    <section class="hero is-link is-fullheight video" style="overflow: hidden; position: relative">
+      <div class="hero-video" style="height: 100%; display: flex; justify-content: center; align-items: center; padding: 0; margin: 0">
+        <video playsinline autoplay muted loop style="height: 100%; aspect-ratio: 16/9; object-fit: cover">
+          <source src="paper_resources/videos/teaser.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="overlay"></div>
+
+      <!-- Hero head: will stick at the top -->
+      <div class="hero-head is-hidden-mobile">
+        <header class="navbar">
+          <div class="container is-size-5">
+            <div class="navbar-menu">
+              <div class="navbar-end">
+                <a class="navbar-item pl-4 pr-4" href="paper_resources/paper.pdf">
+                  <span class="icon" style="margin-right: 5px">
+                    <img src="static/images/pdf.svg" alt="PDF" />
+                  </span>
+                  <span>Paper</span>
+                </a>
+                <!-- <a class="navbar-item pl-4 pr-4" href="">
+                  <span class="icon" style="margin-right: 5px">
+                    <img src="static/images/arxiv.svg" alt="ArXiv" />
+                  </span>
+                  <span>arXiv</span>
+                </a> -->
+                <a href="https://youtu.be/2Cre8e0rN3k" class="navbar-item pl-4 pr-4">
+                  <span class="icon" style="margin-right: 5px">
+                    <img src="static/images/youtube.svg" alt="Youtube" />
+                  </span>
+                  <span>Video</span>
+                </a>
+                <!-- <a href="https://x.com/jianglong_ye/status/1936920891327402271" class="navbar-item pl-4 pr-4">
+                  <span class="icon is-medium" style="margin-right: 5px">
+                    <img src="static/images/twitter-x.svg" alt="X (Twitter)" />
+                  </span>
+                  <span>Summary</span>
+                </a> -->
+                <!-- <span class="navbar-item pl-4 pr-4">
+                  <a href="" class="button is-inverted is-large">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span> -->
+              </div>
+            </div>
+          </div>
+        </header>
+      </div>
+
+      <!-- Hero content: will be in the middle -->
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <h1 class="title is-1 publication-title is-size-1-mobile" style="font-size: 10rem;">SpikeATac</h1>
+          <h1 class="subtitle is-1 publication-title is-size-4-mobile" style="font-size: 4rem">
+            A Multimodal Tactile Finger with Taxelized Dynamic Sensing for Dexterous Manipulation
+          </h1>
+          <!-- <h1 class="is-2 is-italic is-size-5-mobile" style="font-size: 2rem; opacity: 80%; margin-bottom: 0.5em">
+            ICRA 2026
+          </h1> -->
+          <h2 class="is-2 is-italic is-size-5-mobile" style="font-size: 1.5rem; opacity: 95%; margin-bottom: 0.5em">
+            <a href="https://www.ricandrobots.com/">Eric T. Chang</a><sup>*</sup>, 
+            <a href="https://www.linkedin.com/in/peter-ballentine-aa53a8153/">Peter Ballentine</a><sup>*</sup>,
+            <a href="https://zhanpenghe.github.io/">Zhanpeng He</a><sup>*</sup>,
+            <a href="https://www.linkedin.com/in/do-gon-kim/">Do-Gon Kim</a>, 
+            <a href="https://www.linkedin.com/in/kai-jiang1/">Kai Jiang</a>,
+            <a href="https://wilson20010327.github.io/">Hua-Hsuan Liang</a>, 
+            <br />
+            <a href="https://joaquinpalacios.com/">Joaquin Palacios</a>, 
+            William Wong,
+            <a href="https://www.linkedin.com/in/pedropiacenza/">Pedro Piacenza</a>,
+            <a href="https://www.ee.columbia.edu/ioannis-john-kymissis">Ioannis Kymissis</a>,
+            <a href="https://www.me.columbia.edu/faculty/matei-ciocarlie">Matei Ciocarlie</a>
+          </h2>
+
+          <!-- Columbia Logo -->
+          <div class="has-text-centered" style="margin-top: 1.5rem">
+            <img src="paper_resources/images/Columbia_University_Logo-white.png" alt="Columbia Logo" style="height: 2.5rem" class="is-hidden-mobile" />
+            <img src="paper_resources/images/Columbia_University_Logo-white.png" alt="Columbia Logo" style="height: 1.8rem" class="is-hidden-tablet" />
+          </div>
+
+          <div class="column has-text-centered is-hidden-tablet">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="paper_resources/paper.pdf" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <img src="static/images/pdf.svg" alt="PDF" />
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- <span class="link-block">
+                <a href="https://arxiv.org/abs/2506.17198" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <img src="static/images/arxiv.svg" alt="ArXiv" />
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span> -->
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="https://youtu.be/2Cre8e0rN3k" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <img src="static/images/youtube.svg" alt="Youtube" />
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- <span class="link-block">
+                <a href="https://x.com/jianglong_ye/status/1936920891327402271" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon" style="margin-right: 5px">
+                    <img src="static/images/twitter-x.svg" alt="X (Twitter)" />
+                  </span>
+                  <span>Summary</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <!-- <span class="link-block">
+                <a href="https://github.com/jianglongye/dex1b" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero footer: will stick at the bottom -->
+      <div class="hero-foot is-hidden-mobile">
+        <nav class="tabs is-boxed is-fullwidth is-size-5">
+          <ul>
+            <li><a href="index.html#hardware">Hardware Design</a></li>
+            <li><a href="index.html#fastgrasp">Fast and Delicate Grasping</a></li>
+            <li><a href="index.html#pipeline">On-Robot RL Fine-tuning</a></li>
+            <li><a href="index.html#ihm">Fragile In-Hand Manipulation</a></li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+
+    <section class="section is-medium" id="overview">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column is-four-fifths has-text-justified is-hidden-mobile">
+            <h2 class="subtitle">
+              <b>SpikeATac</b> <img src="./paper_resources/images/hedgehog_emoji.svg" alt="SpikeAtac" style="height: 1.2em; width: auto; vertical-align: text-top;"> is a multi-modal, high-frequency, and compact tactile sensor that is designed for <i>dexterous manipulation</i>. It combines dynamic and static contact information,
+              allowing us to achieve achieve tasks that require precise force modulation--fast grasping and in-hand manipulating <i>fragile objects</i>.
+            </h2>
+            <br />
+            <h2 class="subtitle">
+              To achieve in-hand manipulation with fragile objects, we use Reinforcement Learning from Human Feedback (RLHF) directly on a real robot to fine-tune the behaviors of a policy. We combine RLHF with tactile-based rewards, resulting in an <b>efficient</b> and <b>effective</b> RL pipeline.  
+            </h2>
+          </div>
+
+          <div class="column is-four-fifths is-hidden-tablet has-text-justified-mobile">
+            <p>
+              <b>SpikeATac</b> <img src="./paper_resources/images/hedgehog_emoji.svg" alt="SpikeAtac" style="height: 1.2em; width: auto; vertical-align: text-top;"> is a multi-modal, high-frequency, and compact tactile sensor that is designed for <i>dexterous manipulation</i>. It combines dynamic and static contact information,
+              allowing us to achieve achieve tasks that require precise force modulation--fast grasping and in-hand manipulating <i>fragile objects</i>.
+            </p>
+            <br />
+            <p>
+              To achieve in-hand manipulation with fragile objects, we use Reinforcement Learning from Human Feedback (RLHF) directly on a real robot to fine-tune the behaviors of a policy. We combine RLHF with tactile-based rewards, resulting in an <b>efficient</b> and <b>effective</b> RL pipeline.  
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="video">
+      <div class="container is-max-desktop">
+        <h2 class="title is-1 has-text-centered is-size-4-mobile">Technical Summary Video</h2>
+        <iframe
+          width="100%"
+          style="aspect-ratio: 16 / 9"
+          src="https://www.youtube.com/embed/KiKrWGvmeuM"
+          title="SpikeATac Summary"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </section>
+
+    <!-- <section class="section is-small has-background-black has-text-light" id="demonstrations">
+      <div class="container is-max-desktop">
+        <h2 class="title is-1 has-text-white is-size-4-mobile">Hardware Design of SpikeATac <img src="./static/images/hedgehog_emoji.svg" alt="SpikeAtac" style="height: 1.2em; width: auto; vertical-align: text-top;"></h2>
+        <div class="content has-text-justified">
+          <p>
+            Dex1B leverages simulation and generative models to construct a billion-scale demonstration dataset for
+            <a href="index.html#" id="btn-grasping"><b>grasping</b></a
+            >🖐️ and <a href="index.html#" id="btn-articulation"><b>articulation</b></a
+            >💻.
+          </p>
+          <p class="mt-1"><small>* Click "grasping" or "articulation" above to show the corresponding visualizations.</small></p>
+        </div>
+
+        <div class="content has-text-justified">
+          <p>
+            For grasping, we construct 1 million scenes using object assets from
+            <a href="https://objaverse.allenai.org/" style="color: inherit; text-decoration: underline">Objaverse</a>. For articulation, we construct
+            scenes using object assets from
+            <a href="https://sapien.ucsd.edu/browse" style="color: inherit; text-decoration: underline">PartNet-Mobility</a>. We use optimization
+            techniques to construct seed datasets with a few demonstrations, and then employ DexSimple to expand the datasets to billion scale. All
+            demonstrations are validated using the
+            <a href="https://maniskill.readthedocs.io/en/latest/" style="color: inherit; text-decoration: underline">ManiSkill</a>/<a
+              href="https://sapien.ucsd.edu/"
+              style="color: inherit; text-decoration: underline"
+              >SAPIEN</a
+            >
+            simulator.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <video id="demo-video" playsinline autoplay muted loop preload="metadata" loading="lazy" style="width: 100%; object-fit: cover">
+      <source id="demo-video-source" src="static/videos/spikeatac_hw.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video> -->
+
+    <section class="section is-small" id="hardware">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column is-four-fifths is-centered">
+            <h2 class="title is-3 has-text-centered is-size-5-mobile">Hardware Design of SpikeATac <img src="./paper_resources/images/hedgehog_emoji.svg" alt="SpikeAtac" style="height: 1.2em; width: auto; vertical-align: text-top;"></h2>
+            <div class="content has-text-justified">
+              <p>
+                SpikeATac is a multimodal tactile fingertip that combines cutting-edge dynamic and static sensing capabilities in a compact, human-scale form factor. At its core is a 16-taxel PVDF (polyvinylidene fluoride) array sampled at 4 kHz, providing highly sensitive dynamic signals that can detect the very onset and breaking of contact, extrinsic contact events, and surface texture vibrations. Named for its characteristic 'spiky' response, the PVDF is embedded near the surface of the finger's elastomer to maximize sensitivity to dynamic events while being isolated from structural vibration. Complementing this dynamic sensing, seven commercial off-the-shelf capacitive taxels are embedded deeper beneath the surface to provide static pressure response, creating a multimodal sensing system inspired by biological mechanoreceptors.
+              </p>
+              <p>
+                The hardware design represents a significant advancement in creating taxelized PVDF arrays suitable for robotic manipulation. Through a custom photolithography fabrication process, the PVDF film is patterned into 16 individual taxels with traces and alignment marks, paired with a common ground plane. Each taxel is connected through charge amplifiers with carefully designed high-pass filter behavior, allowing the sensor to be extremely sensitive to transients without permanently saturating. At 45mm × 32mm × 25mm (length × width × thickness), SpikeATac is just larger than a human thumb, with a finger-shaped form factor conducive to stable contact states and 180-degree sensing coverage.
+              </p>
+            </div>
+            <video autoplay muted loop playsinline height="100%" loading="lazy">
+              <source src="paper_resources/videos/spikeatac_hw.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="fastgrasp">
+      <div class="container is-max-desktop">
+        <div class="box pt-6 pb-6">
+          <div class="columns is-max-desktop is-centered">
+            <div class="column is-four-fifths is-centered">
+              <h2 class="title is-3 has-text-centered is-size-5-mobile">Fast and Delicate Grasping</h2>
+              <div class="content">
+                <p>
+                  One of SpikeATac's most impressive capabilities is its ability to perform extremely fast grasping while remaining delicate enough to handle highly fragile objects without damage. By leveraging PVDF's extreme responsiveness to contact onset, the system can detect the precise moment of initial contact and respond virtually instantaneously, even when the gripper is moving at high velocities. Experiments comparing PVDF-based contact detection against capacitive-only sensing demonstrate that SpikeATac enables significantly faster stopping upon contact—a critical capability for robots operating quickly in unstable or safety-critical environments.
+                </p>
+                <p>
+                  The system's performance is particularly striking when handling delicate objects like sheets of seaweed (nori). In controlled experiments across slow, medium, and fast gripper velocities, PVDF-based grasping succeeded perfectly—achieving zero crushed objects across 30 trials at each speed, even at the highest velocities tested. In stark contrast, capacitive-only sensing succeeded at slow speeds but failed frequently at medium and fast speeds, crushing 20 out of 30 and 23 out of 30 objects respectively. This dramatic difference arises from PVDF's ability to detect sharp contact edges and transient events that static sensors miss, allowing the gripper to stop within just 1.9-2.4mm of initial contact even at the fastest speeds tested.
+                </p>
+              </div>
+              <video autoplay muted loop playsinline width="100%" loading="lazy">
+                <source src="paper_resources/videos/fast_grasping.mp4" type="video/mp4" />
+              </video>
+              
+
+              <!-- <h2 class="title is-4 has-text-centered is-size-6-mobile">Spatial Generalizability</h2>
+              <div id="results-carousel" class="slider results-carousel">
+                <div class="item item-spatial-0">
+                  <video poster="index.html" id="steve" autoplay controls muted loop playsinline width="100%" loading="lazy">
+                    <source src="static/videos/spatial-0-4x.mp4" type="video/mp4" />
+                  </video>
+                </div>
+                <div class="item item-spatial-1">
+                  <video poster="index.html" id="steve" autoplay controls muted loop playsinline width="100%" loading="lazy">
+                    <source src="static/videos/spatial-1-4x.mp4" type="video/mp4" />
+                  </video>
+                </div>
+                <div class="item item-spatial-2">
+                  <video poster="index.html" id="steve" autoplay controls muted loop playsinline width="100%" loading="lazy">
+                    <source src="static/videos/spatial-2-4x.mp4" type="video/mp4" />
+                  </video>
+                </div>
+              </div> -->
+
+              <!-- <div class="content">
+                We showcase the spatial generalizability of our policy in the videos above. The object is placed at various locations sequentially and
+                is successfully grasped.
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section is-small" id="pipeline">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column is-four-fifths is-centered">
+            <h2 class="title is-3 has-text-centered is-size-5-mobile">Efficient On-Robot RL from Human Feedbacks</h2>
+            <!-- <video autoplay muted loop playsinline height="100%" loading="lazy">
+              <source src="static/videos/pipeline.mp4" type="video/mp4" />
+            </video> -->
+            <img src="paper_resources/images/on-robot-rl.png" alt="On-Robot RL Pipeline" style="width: 100%; object-fit: cover; margin-bottom: 1.5rem" />
+            <div class="content has-text-justified">
+              <p>
+                As shown in the pipeline above, our approach starts with a base policy trained via behavioral cloning on demonstrations collected from the real robot. This base policy operates on raw, unprocessed sensor signals from SpikeATac, incorporating 16 PVDF signals and 7 capacitive signals per finger. While this base policy works adequately on rigid objects, it immediately fails on fragile ones, lacking the ability to produce appropriately delicate touch. The solution is on-robot RL fine-tuning using Soft Actor-Critic (SAC) that operates directly on the real robot with real sensor data.
+              </p>
+            </div>
+            <img src="paper_resources/images/reward-labeling.png" alt="Reward Labeling" style="width: 100%; object-fit: cover; margin-top: 1rem; margin-bottom: 1.5rem" />
+            <div class="content has-text-justified">
+              <p>
+                We use a hybrid reward formulation, illustrated in the figure above. We combine two complementary signals: (1) semi-sparse task rewards provided by human annotators who label trajectory segments as "good" (object rotating) or "bad" (not rotating), providing richer feedback than purely sparse rewards without requiring complex state estimation, and (2) dense tactile-based rewards derived directly from sensor observations, encouraging the agent to reduce excessive contact forces (captured by capacitive readings) while increasing exploratory contacts (reflected in PVDF spike counts from making and breaking contact).
+              </p>
+              <p>
+                Through iterative data collection and policy updates following the pipeline, the system learns to make visibly softer contacts over successive learning iterations. This demonstrates that SpikeATac's complex, high-dimensional signals—which are extremely difficult to simulate accurately—can be effectively leveraged for real-world data-driven manipulation of fragile objects.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section is-small" id="ihm">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column is-four-fifths is-centered">
+            <h2 class="title is-3 has-text-centered is-size-5-mobile">Fragile In-hand Manipulation</h2>
+            <div class="content has-text-justified">
+              <p>
+                The ultimate demonstration of SpikeATac's capabilities is successful in-hand rotation of fragile objects using a four-finger robot hand—a challenging dexterous manipulation task made even more difficult by extending it to extremely delicate objects like paper. Using only tactile and proprioceptive information (no vision), the system achieves finger-gaiting manipulation that continuously rotates fragile paper objects without crushing them, representing a capability not previously demonstrated in robotic manipulation research.
+              </p>
+
+            </div>
+            <video autoplay muted loop playsinline height="100%" loading="lazy">
+              <source src="paper_resources/videos/teaser.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="BibTeX">
+      <div class="container is-max-desktop content">
+        <h2 class="title is-3">BibTeX</h2>
+        <pre><code>TBD</code></pre>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p>
+                Website template modified from <a href="https://nerfies.github.io/">NeRFies</a>.
+              </p>
+              <p>
+                This website is licensed under a
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"
+                  >Creative Commons Attribution-ShareAlike 4.0 International License</a
+                >.
+              </p>
+              <p>
+                This means you are free to borrow and modify the <a href="https://github.com/nerfies/nerfies.github.io">source code</a> of this
+                website as long as you link back to the <a href="https://nerfies.github.io/">NeRFies</a> page in the footer. Please remember to remove
+                the analytics code included in the header of the website which you do not want on your website.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const sources = {
+        grasping: "./static/videos/grasping-video.mp4",
+        articulation: "./static/videos/articulation-video.mp4",
+      };
+      const demoVideo = document.getElementById("demo-video");
+      const demoSource = document.getElementById("demo-video-source");
+
+      document.getElementById("btn-grasping").addEventListener("click", function (e) {
+        e.preventDefault();
+        demoSource.src = sources.grasping;
+        demoVideo.load();
+        demoVideo.play();
+      });
+
+      document.getElementById("btn-articulation").addEventListener("click", function (e) {
+        e.preventDefault();
+        demoSource.src = sources.articulation;
+        demoVideo.load();
+        demoVideo.play();
+      });
+
+      bulmaCarousel.attach();
+    </script>
+  </body>
+</html>
