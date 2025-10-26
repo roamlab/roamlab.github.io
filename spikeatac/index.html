@@ -63,7 +63,7 @@
                   </span>
                   <span>arXiv</span>
                 </a> -->
-                <a href="https://youtu.be/2Cre8e0rN3k" class="navbar-item pl-4 pr-4">
+                <a href="https://www.youtube.com/@columbiaroamlab9802" class="navbar-item pl-4 pr-4">
                   <span class="icon" style="margin-right: 5px">
                     <img src="static/images/youtube.svg" alt="Youtube" />
                   </span>
@@ -143,7 +143,7 @@
               </span> -->
               <!-- Video Link. -->
               <span class="link-block">
-                <a href="https://youtu.be/2Cre8e0rN3k" class="external-link button is-normal is-rounded is-dark">
+                <a href="https://www.youtube.com/@columbiaroamlab9802" class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                     <img src="static/images/youtube.svg" alt="Youtube" />
                   </span>
@@ -262,20 +262,37 @@
             <h2 class="title is-3 has-text-centered is-size-5-mobile">Hardware Design<img src="./paper_resources/images/hedgehog_emoji.svg" alt="SpikeAtac" style="height: 1.2em; width: auto; vertical-align: text-top;"></h2>
             <div class="content has-text-justified">
               <p>
-                SpikeATac is a multimodal tactile fingertip that combines dynamic and static sensing capabilities in a compact, human-scale form factor.
-                At its core is a 16-taxel PVDF (polyvinylidene fluoride) array sampled at 4 kHz, providing highly sensitive dynamic signals that can 
-                detect the very onset and breaking of contact, extrinsic contact events, and surface texture vibrations. 
+                SpikeATac is a multimodal tactile fingertip that combines dynamic and static sensing capabilities in a compact form factor.
+                Its core feature is a 16-taxel PVDF array which provides very high sensitivity
+                to high frequency events. This dynamic modality is complemented by 7 commercial off-the-shelf (COTS) capacitive taxels
+                deeper under the surface in order to provide a static pressure
+                response. An optional accelerometer inside the finger provides additional high frequency feedback and is connected to a “nail” feature for
+                surface exploration; however, we do not make use of this feature in this study.
+                <!-- It contains a high frequency (4 kHz), 16-taxel PVDF array embedded at the contact surface, complemented by 7 capacitive pads 
+                embedded below the PVDF for pressure sensing. An optional accelerometer inside the finger provides additional high frequency feedback. -->
+                At 45 × 32 × 25 mm (length × width × thickness), SpikeATac is just larger than a human thumb, has a finger-shaped form
+                factor conducive to stable contact states, and has 180° sensing coverage.
+
+                <!-- Its core feature is a 16-taxel PVDF array which provides very high sensitivity to high frequency events, like making and breaking contact, 
+                extrinsic contact, and vibrations from surface textures. 
                 The PVDF is embedded near the surface of the finger's elastomer to maximize sensitivity to dynamic events while being isolated 
                 from structural vibration. Complementing this dynamic sensing, seven commercial off-the-shelf capacitive taxels are embedded deeper 
-                beneath the surface to provide static pressure response, creating a multimodal sensing system inspired by biological mechanoreceptors.
+                beneath the surface to provide static pressure response, creating a multimodal sensing system inspired by biological mechanoreceptors. -->
               </p>
               <p>
-                The hardware design represents an advancement in creating taxelized PVDF arrays suitable for robotic manipulation. 
+                PVDF produces charge proportional to applied strain. We
+                use charge amplifiers to measure the charge generated at each
+                electrode, therefore measuring applied strain. However, the
+                feedback resistor of the charge amplifier provides a discharge
+                path, creating high-pass filter behavior. A critical part of our
+                work is that this configuration allows the PVDF to be very
+                sensitive to transients without permanently saturating.
+                <!-- The hardware design represents an advancement in creating taxelized PVDF arrays suitable for robotic manipulation. 
                 Through a custom photolithography fabrication process, the PVDF film is patterned into 16 individual taxels with traces 
                 and alignment marks, paired with a common ground plane. Each taxel is connected through charge amplifiers with 
                 high-pass filter behavior, allowing the sensor to be extremely sensitive to transients without permanently saturating. 
                 At 45mm × 32mm × 25mm (length × width × thickness), SpikeATac is just larger than a human thumb, with a finger-shaped form 
-                factor conducive to stable contact states and 180-degree sensing coverage.
+                factor conducive to stable contact states and 180-degree sensing coverage. -->
               </p>
             </div>
             <video autoplay muted loop playsinline height="100%" loading="lazy">
@@ -294,8 +311,8 @@
               <h2 class="title is-3 has-text-centered is-size-5-mobile">Fast and Delicate Grasping</h2>
               <div class="content">
                 <p>
-                  SpikeATac can be used to perform extremely fast grasping while remaining delicate enough to handle highly fragile objects without 
-                  damage. By leveraging PVDF's extreme responsiveness to contact onset, the system can detect the precise moment of initial contact 
+                  SpikeATac can be used to perform fast grasping while remaining delicate enough to handle highly fragile objects without 
+                  damage. By leveraging PVDF's responsiveness to contact onset, the system can detect the precise moment of initial contact 
                   and respond very fast, even when the gripper is moving at high velocities. This ability is particularly relevant when handling 
                   delicate objects like sheets of seaweed (nori). In controlled experiments across slow, medium, and fast gripper velocities, 
                   PVDF-based grasping achieved zero crushed objects across 30 trials at each speed, even at the highest velocities tested. 
@@ -394,6 +411,15 @@
         <pre><code>TBD</code></pre>
       </div>
     </section>
+
+    <section class="section" id="acknowledgements">
+      <div class="container is-max-desktop content">
+        <h2 class="title is-3">Acknowledgements</h2>
+        <p>
+          This work was supported by a NASA Space Technology Graduate Research Opportunity and by a National Science Foundation Graduate Research Fellowship under Grant No. DGE-2036197.
+          We thank Trey Smith, Brian Coltin, Amr El-Azizi, and Rajinder Singh Deol for insightful discussion.
+        </p>
+      </div>
 
     <footer class="footer">
       <div class="container">
