@@ -92,7 +92,7 @@
       <!-- Hero content: will be in the middle -->
       <div class="hero-body">
         <div class="container has-text-centered">
-          <h1 class="title is-1 publication-title is-size-1-mobile" style="font-size: 10rem;">SpikeATac</h1>
+          <h1 class="title is-1 publication-title is-size-1-mobile" style="font-size: 10rem;">🦔SpikeATac</h1>
           <h1 class="subtitle is-1 publication-title is-size-4-mobile" style="font-size: 4rem">
             A Multimodal Tactile Finger with Taxelized Dynamic Sensing for Dexterous Manipulation
           </h1>
@@ -199,12 +199,12 @@
 
           <div class="column is-four-fifths is-hidden-tablet has-text-justified-mobile">
             <p>
-              <b>SpikeATac</b> <img src="./paper_resources/images/hedgehog_emoji.svg" alt="SpikeAtac" style="height: 1.2em; width: auto; vertical-align: text-top;"> is a multi-modal, high-frequency, and compact tactile sensor that is designed for <i>dexterous manipulation</i>. It combines dynamic and static contact information,
-              allowing us to achieve achieve tasks that require precise force modulation--fast grasping and in-hand manipulating <i>fragile objects</i>.
-            </p>
-            <br />
-            <p>
-              To achieve in-hand manipulation with fragile objects, we use Reinforcement Learning from Human Feedback (RLHF) directly on a real robot to fine-tune the behaviors of a policy. We combine RLHF with tactile-based rewards, resulting in an <b>efficient</b> and <b>effective</b> RL pipeline.  
+              <b>SpikeATac</b> <img src="./paper_resources/images/hedgehog_emoji.svg" alt="SpikeAtac" style="height: 1.2em; width: auto; vertical-align: text-top;"> is a a multimodal tactile finger 
+              combining a taxelized and highly sensitive dynamic response (PVDF) with a static transduction method (capacitive) for multimodal touch sensing. 
+              Named for its `spiky' response, SpikeATac's multitaxel PVDF film provides fast, sensitive dynamic signals to the very onset and breaking of contact, 
+              providing the ability to stop quickly and delicately when grasping fragile, deformable objects. SpikeATac can also be used in a learning-based framework 
+              to achieve new capabilities on a dexterous multifingered robot hand: we use a learning recipe that combines reinforcement learning from human feedback with 
+              tactile-based rewards to fine-tune the behavior of a policy to modulate force, and enable a difficult in-hand manipulation of fragile objects.
             </p>
           </div>
         </div>
@@ -337,20 +337,20 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column is-four-fifths is-centered">
-            <h2 class="title is-3 has-text-centered is-size-5-mobile">Efficient On-Robot RL from Human Feedbacks</h2>
+            <h2 class="title is-3 has-text-centered is-size-5-mobile">Efficient On-Robot RL from Human Feedback</h2>
             <!-- <video autoplay muted loop playsinline height="100%" loading="lazy">
               <source src="static/videos/pipeline.mp4" type="video/mp4" />
             </video> -->
             <img src="paper_resources/images/on-robot-rl.png" alt="On-Robot RL Pipeline" style="width: 100%; object-fit: cover; margin-bottom: 1.5rem" />
             <div class="content has-text-justified">
               <p>
-                As shown in the pipeline above, our approach starts with a base policy trained via behavioral cloning on demonstrations collected from the real robot. This base policy operates on raw, unprocessed sensor signals from SpikeATac, incorporating 16 PVDF signals and 7 capacitive signals per finger. While this base policy works adequately on rigid objects, it immediately fails on fragile ones, lacking the ability to produce appropriately delicate touch. The solution is on-robot RL fine-tuning using Soft Actor-Critic (SAC) that operates directly on the real robot with real sensor data.
+                Our approach starts with a base policy trained via behavioral cloning on demonstrations collected from the real robot. This base policy operates on raw, unprocessed sensor signals from SpikeATac, incorporating 16 PVDF signals and 7 capacitive signals per finger. While this base policy works adequately on rigid objects, it immediately fails on fragile ones, lacking the ability to produce appropriately delicate touch. The solution is on-robot RL fine-tuning using Soft Actor-Critic (SAC) that operates directly on the real robot with real sensor data.
               </p>
             </div>
             <img src="paper_resources/images/reward-labeling.png" alt="Reward Labeling" style="width: 100%; object-fit: cover; margin-top: 1rem; margin-bottom: 1.5rem" />
             <div class="content has-text-justified">
               <p>
-                We use a hybrid reward formulation, illustrated in the figure above. We combine two complementary signals: (1) semi-sparse task rewards provided by human annotators who label trajectory segments as "good" (object rotating) or "bad" (not rotating), providing richer feedback than purely sparse rewards without requiring complex state estimation, and (2) dense tactile-based rewards derived directly from sensor observations, encouraging the agent to reduce excessive contact forces (captured by capacitive readings) while increasing exploratory contacts (reflected in PVDF spike counts from making and breaking contact).
+                We use a hybrid reward formulation, illustrated above. We combine two complementary signals: (1) semi-sparse task rewards provided by human annotators who label trajectory segments as "good" (object rotating) or "bad" (not rotating), providing richer feedback than purely sparse rewards without requiring complex state estimation, and (2) dense tactile-based rewards derived directly from sensor observations, encouraging the agent to reduce excessive contact forces (captured by capacitive readings) while increasing exploratory contacts (reflected in PVDF spike counts from making and breaking contact).
               </p>
               <p>
                 Through iterative data collection and policy updates following the pipeline, the system learns to make visibly softer contacts over successive learning iterations. This demonstrates that SpikeATac's complex, high-dimensional signals—which are extremely difficult to simulate accurately—can be effectively leveraged for real-world data-driven manipulation of fragile objects.
