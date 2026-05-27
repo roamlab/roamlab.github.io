@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="Surface electromyography (sEMG) is a promising control signal for assist-as-needed hand rehabilitation after stroke, but detecting intent from paretic muscles often requires lengthy, subject-specific calibration and remains brittle to variability. We propose a healthy-to-stroke adaptation pipeline that initializes an intent detector from a model pretrained on large-scale able-bodied sEMG, then fine-tunes it for each stroke participant using only a small amount of subject-specific data.">
+  <title>ReactEMG Stroke: Healthy-to-Stroke Few-shot Adaptation for sEMG-Based Intent Detection</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="./static/css/index.css">
+</head>
+
+<body>
+
+  <!-- ╔══════════════════════════════════════════════════════════╗
+       ║  HERO                                                    ║
+       ╚══════════════════════════════════════════════════════════╝ -->
+  <header class="hero" id="top">
+    <div class="container">
+
+      <h1 class="paper-title">
+        <span class="accent">ReactEMG Stroke</span>: Healthy-to-Stroke Few-shot Adaptation<br>
+        for sEMG-Based Intent Detection
+      </h1>
+
+      <div class="author-list">
+        <div class="author"><a href="http://runshengwang.com/">Runsheng Wang</a></div>
+        <div class="author">Katelyn Lee</div>
+        <div class="author"><a href="https://xinyuezhu.com/">Xinyue Zhu</a></div>
+        <div class="author"><a href="https://www.vagelos.columbia.edu/profile/lauren-winterbottom-ot">Lauren Winterbottom</a></div>
+        <div class="author"><a href="https://www.vagelos.columbia.edu/profile/dawn-nilsen-edd">Dawn M. Nilsen</a><sup>+</sup></div>
+        <div class="author"><a href="https://www.neurology.columbia.edu/profile/joel-stein-m-d">Joel Stein</a><sup>+</sup></div>
+        <div class="author"><a href="https://www.me.columbia.edu/faculty/matei-ciocarlie">Matei Ciocarlie</a><sup>+</sup></div>
+      </div>
+
+      <div class="affiliations">Columbia University</div>
+      <p class="equal-contrib">
+        <sup>+</sup> Co-Principal Investigators
+      </p>
+
+      <div class="link-buttons">
+        <a href="https://arxiv.org/abs/2601.22090" class="btn" target="_blank" rel="noopener">
+          <i class="fas fa-file-pdf"></i> <span>Paper</span>
+        </a>
+        <a href="#" class="btn" target="_blank" rel="noopener">
+          <i class="fab fa-youtube"></i> <span>Video</span>
+        </a>
+        <a href="https://github.com/roamlab/reactemg" class="btn" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i> <span>Code &amp; Dataset</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ╔══════════════════════════════════════════════════════════╗
+       ║  TEASER VIDEO                                            ║
+       ╚══════════════════════════════════════════════════════════╝ -->
+  <section class="section teaser-section">
+    <div class="container">
+      <div class="video-label">Overview</div>
+      <div class="teaser">
+        <video id="teaser_video" muted autoplay playsinline controls preload="auto" loop>
+          <source src="video/website_loop_vid_compressed.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <!-- TL;DR -->
+  <div class="container">
+    <p class="tldr">
+      <strong>ReactEMG</strong> is a low-latency, high-accuracy model that predicts hand gestures from forearm EMG signals at every timestep. Its masked-segmentation architecture jointly learns EMG features and user intent, enabling zero-shot generalization without subject-specific calibration and making it well-suited for robotic control.
+    </p>
+  </div>
+
+  <!-- ╔══════════════════════════════════════════════════════════╗
+       ║  ABSTRACT                                                ║
+       ╚══════════════════════════════════════════════════════════╝ -->
+  <section class="section" id="abstract">
+    <div class="container container-narrow">
+      <h2>Abstract</h2>
+      <p class="lead">
+        Surface electromyography (sEMG) is a promising control signal for assist-as-needed hand rehabilitation after stroke, but detecting intent from paretic muscles often requires lengthy, subject-specific calibration and remains brittle to variability. We propose a healthy-to-stroke adaptation pipeline that initializes an intent detector from a model pretrained on large-scale able-bodied sEMG, then fine-tunes it for each stroke participant using only a small amount of subject-specific data. Using a newly collected dataset from three individuals with chronic stroke, we compare adaptation strategies (head-only tuning, parameter-efficient LoRA adapters, and full end-to-end fine-tuning) and evaluate on held-out test sets that include realistic distribution shifts such as within-session drift, posture changes, and armband repositioning. Across conditions, healthy-pretrained adaptation consistently improves stroke intent detection relative to both zero-shot transfer and stroke-only training under the same data budget; the best adaptation methods improve average transition accuracy from 0.42 to 0.61 and raw accuracy from 0.69 to 0.78. These results suggest that transferring a reusable healthy-domain EMG representation can reduce calibration burden while improving robustness for real-time post-stroke intent detection.
+      </p>
+    </div>
+  </section>
+
+  <!-- ╔══════════════════════════════════════════════════════════╗
+       ║  INTENT DETECTION EXAMPLES                               ║
+       ╚══════════════════════════════════════════════════════════╝ -->
+  <section class="section" id="examples">
+    <div class="container container-medium">
+      <h2>Intent Detection Examples</h2>
+
+      <p class="fig-label">
+        <b>(1) Same Subject, Different Task.</b> On a new, unseen subject, ReactEMG accurately detects open and close intents across diverse real-world tasks that contain different arm movements.
+      </p>
+      <figure class="figure-full">
+        <img alt="Same subject, different task — offline prediction example" src="static/img/offline_prediction_6.png">
+      </figure>
+
+      <p class="fig-label">
+        <b>(2) Same Task, Different Subjects.</b> In the static hanging task (subjects perform open and close gestures with the arm hanging freely at the side) ReactEMG accurately detects intents across different subjects, even when EMG signals exhibit vastly different coactivation patterns.
+      </p>
+      <figure class="figure-full">
+        <img alt="Same task, different subjects — offline prediction example" src="static/img/offline_prediction_9.png">
+      </figure>
+    </div>
+  </section>
+
+  <!-- ╔══════════════════════════════════════════════════════════╗
+       ║  METHOD                                                  ║
+       ╚══════════════════════════════════════════════════════════╝ -->
+  <section class="section" id="method">
+    <div class="container container-medium">
+      <h2>Method</h2>
+      <p class="lead">
+        Our model treats 8-channel EMG signals and intent labels as two synchronized input streams: each is embedded, randomly masked in contiguous spans, and concatenated into a single sequence as input to Transformer encoders. The network is trained to reconstruct masked EMG signals (via a regression loss) and masked intent tokens (via a classification loss), which forces tight alignment between muscle activity and user intention. As a result, it delivers fast, stable intent predictions at every timestep — no manual features or per-user calibration required.
+      </p>
+      <figure class="figure-full">
+        <img alt="ReactEMG architecture diagram" src="static/img/architecture.png">
+      </figure>
+    </div>
+  </section>
+
+  <!-- ╔══════════════════════════════════════════════════════════╗
+       ║  METRIC FOR DEVICE CONTROL                               ║
+       ╚══════════════════════════════════════════════════════════╝ -->
+  <section class="section" id="metric">
+    <div class="container container-medium">
+      <h2>Metric for Device Control</h2>
+      <p class="lead">
+        While traditional metrics such as per-timestep raw accuracy are important, they fail to capture situations where a transition to a new gesture is detected with delay, or maintenance of a stable gesture exhibits unwanted flicker in the prediction. To capture such cases, we use a new metric dubbed <strong>transition accuracy</strong>. According to this metric, a transition is considered to be successfully detected only if the model output correctly transitions between intents close enough to the ground truth change (&ldquo;reaction buffer&rdquo; in the image below), and exhibits no instability either before or after the transition (&ldquo;maintenance period&rdquo;).
+      </p>
+      <figure class="figure-full">
+        <img alt="Transition accuracy metric illustration" src="static/img/transition_metrics.png">
+      </figure>
+      <p class="lead">
+        ReactEMG outperforms baselines on both raw accuracy and transition accuracy, particularly on datasets exhibiting direct transitions between different hand gestures and maintenance windows of varying lengths, suggesting future applicability to controlling devices such as wearable robots.
+      </p>
+    </div>
+  </section>
+
+  <!-- ╔══════════════════════════════════════════════════════════╗
+       ║  FOOTER                                                  ║
+       ╚══════════════════════════════════════════════════════════╝ -->
+  <footer class="site-footer">
+    <p>Website template modified from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>, with styling inspired by <a href="https://younghyopark.me/tune-to-learn/">Tune to Learn</a>.</p>
+    <p>Licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+    <p><a href="#top">Back to top &uarr;</a></p>
+  </footer>
+
+</body>
+
+</html>
