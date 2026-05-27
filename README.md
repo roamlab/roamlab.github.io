@@ -17,6 +17,7 @@
         <li><a href="https://roamlab.github.io/morph/"><strong>MORPH</strong>: Design Co-optimization with Reinforcement Learning via a Differentiable Hardware Model Proxy</a></li>
         <li><a href="https://roamlab.github.io/tentamorph/"><strong>TentaMORPH</strong>: Task-based Design and Policy Co-Optimization for Tendon-driven Underactuated Kinematic Chains</a></li>
         <li><a href="https://roamlab.github.io/reactemg/"><strong>ReactEMG</strong>: Stable, Low-Latency Intent Detection from sEMG via Masked Modeling</a></li>
+        <li><a href="https://roamlab.github.io/reactemg-stroke/"><strong>ReactEMG Stroke</strong>: Healthy-to-Stroke Few-shot Adaptation for sEMG-Based Intent Detection</a></li>
     </ul>
 </p>
 

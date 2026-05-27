@@ -35,7 +35,7 @@
 
       <div class="author-list">
         <div class="author"><a href="http://runshengwang.com/">Runsheng Wang</a></div>
-        <div class="author">Katelyn Lee</div>
+        <div class="author"><a href="https://katelynlee.github.io/">Katelyn Lee</a></div>
         <div class="author"><a href="https://xinyuezhu.com/">Xinyue Zhu</a></div>
         <div class="author"><a href="https://www.vagelos.columbia.edu/profile/lauren-winterbottom-ot">Lauren Winterbottom</a></div>
         <div class="author"><a href="https://www.vagelos.columbia.edu/profile/dawn-nilsen-edd">Dawn M. Nilsen</a><sup>+</sup></div>
@@ -79,7 +79,7 @@
   <!-- TL;DR -->
   <div class="container">
     <p class="tldr">
-      <strong>ReactEMG</strong> is a low-latency, high-accuracy model that predicts hand gestures from forearm EMG signals at every timestep. Its masked-segmentation architecture jointly learns EMG features and user intent, enabling zero-shot generalization without subject-specific calibration and making it well-suited for robotic control.
+      <strong>ReactEMG Stroke</strong> adapts a healthy-pretrained sEMG intent detector to individual stroke participants using only a handful of labeled open/close attempts per subject. Starting from a ReactEMG backbone pretrained on 650+ able-bodied users and fine-tuning with strategies such as LoRA or full fine-tuning, it lifts average transition accuracy from 0.42 to 0.61 and raw accuracy from 0.69 to 0.78 — and remains robust to posture changes, armband repositioning, within-session drift, and device-driven motion, pointing toward low-burden calibration for assist-as-needed hand rehabilitation.
     </p>
   </div>
 
@@ -96,58 +96,47 @@
   </section>
 
   <!-- ╔══════════════════════════════════════════════════════════╗
-       ║  INTENT DETECTION EXAMPLES                               ║
-       ╚══════════════════════════════════════════════════════════╝ -->
-  <section class="section" id="examples">
-    <div class="container container-medium">
-      <h2>Intent Detection Examples</h2>
-
-      <p class="fig-label">
-        <b>(1) Same Subject, Different Task.</b> On a new, unseen subject, ReactEMG accurately detects open and close intents across diverse real-world tasks that contain different arm movements.
-      </p>
-      <figure class="figure-full">
-        <img alt="Same subject, different task — offline prediction example" src="static/img/offline_prediction_6.png">
-      </figure>
-
-      <p class="fig-label">
-        <b>(2) Same Task, Different Subjects.</b> In the static hanging task (subjects perform open and close gestures with the arm hanging freely at the side) ReactEMG accurately detects intents across different subjects, even when EMG signals exhibit vastly different coactivation patterns.
-      </p>
-      <figure class="figure-full">
-        <img alt="Same task, different subjects — offline prediction example" src="static/img/offline_prediction_9.png">
-      </figure>
-    </div>
-  </section>
-
-  <!-- ╔══════════════════════════════════════════════════════════╗
        ║  METHOD                                                  ║
        ╚══════════════════════════════════════════════════════════╝ -->
   <section class="section" id="method">
     <div class="container container-medium">
       <h2>Method</h2>
       <p class="lead">
-        Our model treats 8-channel EMG signals and intent labels as two synchronized input streams: each is embedded, randomly masked in contiguous spans, and concatenated into a single sequence as input to Transformer encoders. The network is trained to reconstruct masked EMG signals (via a regression loss) and masked intent tokens (via a classification loss), which forces tight alignment between muscle activity and user intention. As a result, it delivers fast, stable intent predictions at every timestep — no manual features or per-user calibration required.
+        We treat ReactEMG &mdash; pretrained with masked modeling on more than 650 able-bodied participants &mdash; as an EMG foundation model, and adapt it to each stroke participant from a small dataset of cued open/close attempts collected while wearing the MyHand orthosis. We compare three fine-tuning strategies against two baselines: <em>head-only</em> tuning (frozen backbone, trainable classifier), <em>LoRA</em> adapters that learn low-rank updates inside the frozen backbone, and <em>full</em> end-to-end fine-tuning &mdash; benchmarked against frozen <em>zero-shot</em> transfer and <em>stroke-only</em> training from scratch under the same data budget.
       </p>
       <figure class="figure-full">
-        <img alt="ReactEMG architecture diagram" src="static/img/architecture.png">
+        <img alt="ReactEMG Stroke pipeline: healthy pretraining followed by per-subject fine-tuning with head-only, LoRA, or full strategies" src="static/img/architecture.png">
       </figure>
     </div>
   </section>
 
   <!-- ╔══════════════════════════════════════════════════════════╗
-       ║  METRIC FOR DEVICE CONTROL                               ║
+       ║  INTENT DETECTION PERFORMANCE                            ║
        ╚══════════════════════════════════════════════════════════╝ -->
-  <section class="section" id="metric">
+  <section class="section" id="performance">
     <div class="container container-medium">
-      <h2>Metric for Device Control</h2>
+      <h2>Intent Detection Performance</h2>
       <p class="lead">
-        While traditional metrics such as per-timestep raw accuracy are important, they fail to capture situations where a transition to a new gesture is detected with delay, or maintenance of a stable gesture exhibits unwanted flicker in the prediction. To capture such cases, we use a new metric dubbed <strong>transition accuracy</strong>. According to this metric, a transition is considered to be successfully detected only if the model output correctly transitions between intents close enough to the ground truth change (&ldquo;reaction buffer&rdquo; in the image below), and exhibits no instability either before or after the transition (&ldquo;maintenance period&rdquo;).
+        Across three chronic-stroke participants and five held-out test sets &mdash; spanning within-session drift, an unseen hovering posture, a 15&deg; armband rotation, and device-driven motion with the orthosis powered &mdash; healthy-pretrained adaptation consistently beats both frozen zero-shot transfer and stroke-only training under the same data budget. The strongest adaptation strategies (LoRA and full fine-tuning) lift average raw accuracy from 0.69 to 0.78 (+0.09) and transition accuracy from 0.42 to 0.61 (+0.19), with the largest gains showing up on the stability-sensitive transition metric that reflects real-time control quality.
       </p>
       <figure class="figure-full">
-        <img alt="Transition accuracy metric illustration" src="static/img/transition_metrics.png">
+        <img alt="Intent detection performance across stroke participants and adaptation strategies" src="static/img/intent_detection_performance.png">
       </figure>
+    </div>
+  </section>
+
+  <!-- ╔══════════════════════════════════════════════════════════╗
+       ║  DATA EFFICIENCY                                         ║
+       ╚══════════════════════════════════════════════════════════╝ -->
+  <section class="section" id="data-efficiency">
+    <div class="container container-medium">
+      <h2>Data Efficiency</h2>
       <p class="lead">
-        ReactEMG outperforms baselines on both raw accuracy and transition accuracy, particularly on datasets exhibiting direct transitions between different hand gestures and maintenance windows of varying lengths, suggesting future applicability to controlling devices such as wearable robots.
+        Fixing full fine-tuning as the adaptation method and varying the labeled stroke budget <em>N</em> &isin; {1, 4, 8, all} open/close pairs per subject, healthy-pretrained adaptation delivers measurable gains from the very first labeled pair, with returns front-loaded as <em>N</em> grows. For the least-impaired participant, four pairs are enough to approach the saturation point in transition accuracy; more-impaired participants continue to benefit from larger budgets. The result: healthy-domain pretraining can substantially shrink the per-subject calibration burden, while the exact amount of labeled stroke data needed remains participant-dependent.
       </p>
+      <figure class="figure-full">
+        <img alt="Data efficiency curves: transition accuracy vs labeled stroke budget per subject" src="static/img/data_efficiency.png">
+      </figure>
     </div>
   </section>
 
@@ -155,7 +144,7 @@
        ║  FOOTER                                                  ║
        ╚══════════════════════════════════════════════════════════╝ -->
   <footer class="site-footer">
-    <p>Website template modified from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>, with styling inspired by <a href="https://younghyopark.me/tune-to-learn/">Tune to Learn</a>.</p>
+    <p>Website template modified from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> and <a href="https://younghyopark.me/tune-to-learn/">Tune to Learn</a>.</p>
     <p>Licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
     <p><a href="#top">Back to top &uarr;</a></p>
   </footer>
