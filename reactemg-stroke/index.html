@@ -95,7 +95,7 @@
     <div class="container container-medium">
       <h2>Method</h2>
       <p class="lead">
-        We start with <strong>ReactEMG</strong>, an encoder-only transformer that jointly embeds 8-channel sEMG and intent labels with a masked-modeling objective, producing per-timestep gesture predictions at low latency without per-user calibration. Pretrained on more than 650 able-bodied participants, it serves as our EMG foundation model, which we then adapt to each stroke participant from a small dataset of cued open/close attempts collected while wearing the MyHand orthosis. We compare three fine-tuning strategies against two baselines: <em>head-only</em> tuning (frozen backbone, trainable classifier), <em>LoRA</em> adapters that learn low-rank updates inside the frozen backbone, and <em>full</em> end-to-end fine-tuning &mdash; benchmarked against frozen <em>zero-shot</em> transfer and <em>stroke-only</em> training from scratch under the same data budget.
+        We start with <strong><a href="https://roamlab.github.io/reactemg/">ReactEMG</a></strong>, an encoder-only transformer that jointly embeds 8-channel sEMG and intent labels with a masked-modeling objective, producing per-timestep gesture predictions at low latency without per-user calibration. Pretrained on more than 650 able-bodied participants, it serves as our EMG foundation model, which we adapt to each stroke participant from a small dataset of cued open/close attempts collected while wearing the MyHand orthosis. We compare three fine-tuning strategies against two baselines: frozen <em>zero-shot</em> transfer and <em>stroke-only</em> training from scratch under the same data budget.
       </p>
       <figure class="figure-full">
         <img alt="ReactEMG Stroke pipeline: healthy pretraining followed by per-subject fine-tuning with head-only, LoRA, or full strategies" src="static/img/architecture.png">
@@ -110,7 +110,7 @@
     <div class="container container-medium">
       <h2>Intent Detection Performance</h2>
       <p class="lead">
-        Across three chronic-stroke participants and five held-out test sets, every healthy-pretrained adaptation strategy &mdash; head-only, LoRA, and full fine-tuning &mdash; strictly outperforms both frozen zero-shot transfer and stroke-only training from scratch under the same data budget. The strongest variants lift average raw accuracy from 0.69 to 0.78 and transition accuracy from 0.42 to 0.61.
+        Across three chronic-stroke participants and five held-out test sets, the healthy-pretrained adaptation strategy outperforms both frozen zero-shot transfer and stroke-only training from scratch under the same data budget. The strongest variants lift average raw accuracy from 0.69 to 0.78 and transition accuracy from 0.42 to 0.61.
       </p>
       <figure class="figure-full">
         <img alt="Intent detection performance across stroke participants and adaptation strategies" src="static/img/intent_detection_performance.png">
