@@ -16,6 +16,7 @@
         <li><a href="https://roamlab.github.io/hula/"><strong>HULA</strong>: Decision Making for Human-in-the-loop Robotic Agents via Uncertainty-Aware Reinforcement Learning</a></li>
         <li><a href="https://roamlab.github.io/morph/"><strong>MORPH</strong>: Design Co-optimization with Reinforcement Learning via a Differentiable Hardware Model Proxy</a></li>
         <li><a href="https://roamlab.github.io/tentamorph/"><strong>TentaMORPH</strong>: Task-based Design and Policy Co-Optimization for Tendon-driven Underactuated Kinematic Chains</a></li>
+        <li><a href="https://roamlab.github.io/reactemg/"><strong>ReactEMG</strong>: Stable, Low-Latency Intent Detection from sEMG via Masked Modeling</a></li>
     </ul>
 </p>
 
