@@ -268,6 +268,9 @@ a:hover { text-decoration-color: var(--text); }
   border-radius: var(--radius);
   border: 1px solid var(--border);
 }
+.figure-full img[src$=".svg"] {
+  border: 0;
+}
 .figure-full figcaption {
   margin-top: 0.6rem;
   font-size: 0.9rem;
