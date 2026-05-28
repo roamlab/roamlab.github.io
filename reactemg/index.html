@@ -129,7 +129,7 @@
         Our model treats 8-channel EMG signals and intent labels as two synchronized input streams: each is embedded, randomly masked in contiguous spans, and concatenated into a single sequence as input to Transformer encoders. The network is trained to reconstruct masked EMG signals (via a regression loss) and masked intent tokens (via a classification loss), which forces tight alignment between muscle activity and user intention. As a result, it delivers fast, stable intent predictions at every timestep — no manual features or per-user calibration required.
       </p>
       <figure class="figure-full">
-        <img alt="ReactEMG architecture diagram" src="static/img/architecture.png">
+        <img alt="ReactEMG architecture diagram" src="static/img/architecture.svg">
       </figure>
     </div>
   </section>
