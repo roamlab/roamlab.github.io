@@ -256,6 +256,20 @@ a:hover { text-decoration-color: var(--text); }
 }
 .tldr strong { font-weight: 600; }
 
+/* Yellow blurb callout (e.g. follow-up work) */
+.blurb-yellow {
+  max-width: var(--max-width);
+  margin: 2rem auto;
+  padding: 1.1rem 1.4rem;
+  background: #fffbea;
+  border: 1px solid #f6e08a;
+  border-left: 3px solid #f2c200;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+.blurb-yellow strong { font-weight: 600; }
+
 /* ── Figures & Media ──────────────────────────────────────── */
 .figure-full {
   margin: 1.25rem 0;
