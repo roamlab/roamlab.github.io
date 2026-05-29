@@ -1,30 +1,31 @@
-<html>
+# roamlab.github.io
 
-<h1> ROAM Lab Projects</h1>
+Project pages for the **[ROAM Lab](https://roam.me.columbia.edu)** — the Robotic
+Manipulation and Mobility Lab at Columbia University.
 
-<body bgcolor="white" text="black">
+**Live site:** https://roamlab.github.io
 
-<p>
-    This is the root directory for the webpages of several projects from the ROAM lab. Here is a list of available webpage under roamlab.github.io:
-    <ul>
-        <li><a href="https://roamlab.github.io/hwasp/"><strong>HWasP</strong>: Hardware as Policy: Mechanical and Computational Co-Optimization using Deep Reinforcement Learning</a></li>
-        <li><a href="https://roamlab.github.io/discosyn/"><strong>DiscoSyn</strong>: Discovering Synergies for Robot Manipulation with Multi-Task Reinforcement Learning</a></li>
-        <li><a href="https://roamlab.github.io/learnfg/"><strong>In-Hand Manipulation</strong>: On the Feasibility of Learning Finger-gaiting In-hand Manipulation with Intrinsic Sensing</a></li>
-        <li><a href="https://roamlab.github.io/dssm/"><strong>DSSM</strong>: Adaptive Semi-Supervised Intent Inferral to Control a Powered Hand Orthosis for Stroke</a></li>
-        <li><a href="https://sbrl.cs.columbia.edu/"><strong>SBRL</strong>: Sampling-based Exploration for Reinforcement Learning of Dexterous Manipulation</a></li>
-        <li><a href="https://roamlab.github.io/vge/"><strong>GE</strong>: Dexterous In-hand Manipulation by Guiding Exploration with Simple Sub-skills Controllers</a></li>
-        <li><a href="https://roamlab.github.io/hula/"><strong>HULA</strong>: Decision Making for Human-in-the-loop Robotic Agents via Uncertainty-Aware Reinforcement Learning</a></li>
-        <li><a href="https://roamlab.github.io/morph/"><strong>MORPH</strong>: Design Co-optimization with Reinforcement Learning via a Differentiable Hardware Model Proxy</a></li>
-        <li><a href="https://roamlab.github.io/tentamorph/"><strong>TentaMORPH</strong>: Task-based Design and Policy Co-Optimization for Tendon-driven Underactuated Kinematic Chains</a></li>
-        <li><a href="https://roamlab.github.io/reactemg/"><strong>ReactEMG</strong>: Stable, Low-Latency Intent Detection from sEMG via Masked Modeling</a></li>
-        <li><a href="https://roamlab.github.io/reactemg-stroke/"><strong>ReactEMG Stroke</strong>: Healthy-to-Stroke Few-shot Adaptation for sEMG-Based Intent Detection</a></li>
-        <li><a href="https://roamlab.github.io/ditto/"><strong>DITTO</strong>: Dexterous Interface for Transparent TeleOperation</a></li>
-    </ul>
-</p>
+Each paper lives in its own self-contained folder (`reactemg/`, `hula/`, `morph/`, …)
+and is served at `roamlab.github.io/<project>/`. The root `index.html` is the landing
+page that links to all of them.
 
-<h3>Committing to the roamlab.github.io repo</h3>
-<p>Please format your commit message in this format: [PROJECT_NAME]: [COMMIT_MESSAGE]. Please also try your best to avoid merging commit messages by using rebase.</p>
+## Repository layout
 
-</body>
+- `index.html` — landing page / project gallery.
+  - `assets/css/index.css` — landing-page styles (shares the per-paper design language).
+  - `assets/thumbs/` — one optimized 4:3 thumbnail per project.
+- `<project>/` — one folder per paper, each with its own `index.html` and assets.
 
-</html>
+## Adding a new project
+
+1. Copy the `reactemg/` folder as a template (pure HTML + a self-contained
+   `static/css/index.css`, no JS; fonts/icons from CDN) and fill in your content.
+2. Add a thumbnail at `assets/thumbs/<project>.jpg` (~560×420, 4:3, crop-to-fill).
+   If you don't have an image yet, use a monogram placeholder row instead
+   (`<div class="thumb placeholder"><span>NAME</span></div>`).
+3. Add an `<a class="project-row">` entry near the top of `index.html` (newest first).
+
+## Committing
+
+Please format commit messages as `[PROJECT_NAME]: [COMMIT_MESSAGE]`
+(e.g. `reactemg: fix teaser video`). Please avoid merge commits by using rebase.
