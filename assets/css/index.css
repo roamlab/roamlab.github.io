@@ -72,77 +72,55 @@ a:hover { text-decoration-color: var(--text); }
    ║  HERO                                                    ║
    ╚══════════════════════════════════════════════════════════╝ */
 .hero {
-  background: var(--bg-hero);
-  border-bottom: 1px solid var(--border);
-  padding: 4rem 1.5rem 3.25rem;
-  text-align: center;
+  background: var(--bg);
+  padding: 4.75rem 0 1.5rem;
+  text-align: left;
 }
 
 .brand {
-  font-size: clamp(2.2rem, 6vw, 3.4rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1;
+  font-size: clamp(2.5rem, 7vw, 3.9rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
   margin: 0;
+  color: var(--text);
 }
-.brand .dot { color: var(--accent-warm); }
 
-.brand-sub {
-  font-size: clamp(1rem, 2.2vw, 1.18rem);
-  font-weight: 600;
-  margin: 1rem 0 0;
-  letter-spacing: 0.01em;
-}
-.brand-sub .sep { color: var(--text-light); font-weight: 400; margin: 0 0.5rem; }
-
-.tagline {
-  max-width: 600px;
-  margin: 0.9rem auto 0;
+.hero-desc {
+  max-width: 640px;
+  margin: 1.15rem 0 0;
   color: var(--text-muted);
-  font-size: 1.02rem;
+  font-size: clamp(1.02rem, 1.6vw, 1.15rem);
   line-height: 1.6;
 }
 
-/* Link buttons (mirrors per-paper page buttons) */
-.link-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.55rem;
-  margin-top: 1.6rem;
-}
-.btn {
+.hero-link {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.5rem 1.1rem;
-  border-radius: var(--radius);
-  font-size: 0.88rem;
+  margin-top: 1.6rem;
+  font-size: 0.95rem;
   font-weight: 500;
   color: var(--text);
-  background: transparent;
-  border: 1px solid var(--border-strong);
   text-decoration: none;
-  transition: border-color .15s ease, background .15s ease, transform .15s ease;
+  border-bottom: 1px solid var(--border-strong);
+  padding-bottom: 2px;
+  transition: border-color .15s ease;
 }
-.btn:hover {
-  border-color: var(--text);
-  background: var(--bg);
-  text-decoration: none;
-  transform: translateY(-1px);
-}
-.btn i { font-size: 0.95em; }
+.hero-link:hover { border-color: var(--text); text-decoration: none; }
+.hero-link i { font-size: 0.82em; transition: transform .18s ease; }
+.hero-link:hover i { transform: translateX(3px); }
 
 /* ╔══════════════════════════════════════════════════════════╗
    ║  PROJECTS                                                ║
    ╚══════════════════════════════════════════════════════════╝ */
-.projects { padding: 3rem 0 1rem; }
+.projects { padding: 1.75rem 0 1rem; }
 
 .section-head {
   display: flex;
   align-items: baseline;
-  gap: 0.85rem;
-  margin: 0 0 0.4rem;
+  gap: 1rem;
+  margin: 0 0 1.4rem;
 }
 .section-head h2 {
   font-size: 1.4rem;
@@ -150,18 +128,7 @@ a:hover { text-decoration-color: var(--text); }
   margin: 0;
   letter-spacing: 0.005em;
 }
-.section-head .count {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--text-light);
-}
 .section-head .rule { flex: 1; height: 1px; background: var(--border); }
-
-.section-note {
-  color: var(--text-muted);
-  font-size: 0.92rem;
-  margin: 0 0 1.5rem;
-}
 
 /* ── Project rows ──────────────────────────────────────────── */
 .project-list {
@@ -327,8 +294,8 @@ a:hover { text-decoration-color: var(--text); }
 /* ── Responsive ────────────────────────────────────────────── */
 @media (max-width: 620px) {
   :root { --thumb-w: 104px; --thumb-h: 78px; }
-  .hero { padding: 2.75rem 1.25rem 2.25rem; }
-  .projects { padding: 2rem 0 0.5rem; }
+  .hero { padding: 2.75rem 0 1rem; }
+  .projects { padding: 1.25rem 0 0.5rem; }
   .project-row {
     gap: 1rem;
     padding: 1rem 0.5rem 1rem 0.75rem;
